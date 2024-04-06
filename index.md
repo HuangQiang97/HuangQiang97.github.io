@@ -8,6 +8,14 @@
 
 <center><img src="./doc/blog/2023_07_12.png" width = "600" alt="图片名称" align=center /></center>
 
+---
+
+### 博客
+
+> [PageRank网页排序算法](./doc/blog/rangerank.html)
+
+---
+
 ### 笔记
 
 **仿B站**
