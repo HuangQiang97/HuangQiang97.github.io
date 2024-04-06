@@ -1,0 +1,734 @@
+<!doctype html>
+<html style='font-size:18px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'), url('file:///C://Users//huangqiang//AppData//Roaming//Typora/themes/vue/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@import '';
+
+:root {
+    --side-bar-bg-color: #fff;
+    --control-text-color: #777;
+    --font-sans-serif: 'Ubuntu', 'Source Sans Pro', sans-serif !important;
+    --font-monospace: 'Fira Code', 'Roboto Mono', monospace !important;
+    --font-jbmono: 'JetBrains Mono' !important;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    color: #34495e;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6rem;
+    letter-spacing: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#write {
+    max-width: 1024px;
+    margin: 0 auto;
+    /*padding: 20px 30px 100px;*/
+}
+
+#write p {
+    line-height: 1.6rem;
+    word-spacing: .05rem;
+}
+
+#write ol li {
+    padding-left: 0.5rem;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 30px;
+}
+
+body > *:first-child {
+    margin-top: 0 !important;
+}
+
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+a {
+    color: #42b983;
+    font-weight: 600;
+    padding: 0 2px;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit !important;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit !important;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit !important;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit !important;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit !important;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit !important;
+}
+
+h2 a,
+h3 a {
+    color: #34495e;
+}
+
+h1 {
+    padding-bottom: .4rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.75rem;
+    line-height: 1.225;
+    margin: 35px 0 15px;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+h3 {
+    font-size: 1.4rem;
+    line-height: 1.43;
+    margin: 20px 0 7px;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 1rem;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li > ol,
+li > ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #42b983;
+    padding: 10px 15px;
+    color: #777;
+    background-color: rgba(66, 185, 131, .1);
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #fafafa;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+#write strong {
+    padding: 0 1px;
+}
+
+#write em {
+    padding: 0 5px 0 2px;
+}
+
+#write table thead th {
+    background-color: #f2f2f2;
+}
+
+#write .CodeMirror-gutters {
+    border-right: none;
+}
+
+#write .md-fences {
+    border: 1px solid #F4F4F4;
+    -webkit-font-smoothing: initial;
+    margin: 0.8rem 0 !important;
+    padding: 0.3rem 0 !important;
+    line-height: 1.43rem;
+    background-color: #F8F8F8 !important;
+    border-radius: 2px;
+    font-family: var(--font-monospace);
+    font-size: 0.85rem;
+    word-wrap: normal;
+}
+
+#write .CodeMirror-wrap .CodeMirror-code pre {
+    padding-left: 12px;
+}
+
+#write code, tt {
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: var(--font-monospace);
+    font-size: 0.92rem;
+    color: #e96900;
+    background-color: #f8f8f8;
+}
+
+tt {
+    margin: 0 2px;
+}
+
+#write .md-footnote {
+    background-color: #f8f8f8;
+    color: #e96900;
+}
+
+/* heighlight. */
+#write mark {
+    background-color: #EBFFEB;
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: #222;
+    font-weight: 500;
+}
+
+#write del {
+    padding: 1px 2px;
+}
+
+.cm-s-inner .cm-link,
+.cm-s-inner.cm-link {
+    color: #22a2c9;
+}
+
+.cm-s-inner .cm-string {
+    color: #22a2c9;
+}
+
+.md-task-list-item > input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+.md-diagram-panel {
+    position: static !important;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block > .code-tooltip {
+    bottom: .375rem;
+}
+
+#write > h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write > h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write > h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write > h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image > .md-meta {
+    border-radius: 3px;
+    font-family: var(--font-monospace);
+    padding: 2px 0 0 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: inherit;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#md-notification:before {
+    top: 10px;
+}
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: var(--font-sans-serif);
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+
+
+</style><title>Java10</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=' first-line-indent'><h3 id='jvm'><span>JVM</span></h3><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n0"><a class="md-toc-inner" href="#jvm">JVM</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3"><a class="md-toc-inner" href="#参数">参数</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n11"><a class="md-toc-inner" href="#线程数限制">线程数限制</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n14"><a class="md-toc-inner" href="#cpu占用过高">cpu占用过高</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n25"><a class="md-toc-inner" href="#服务缓慢">服务缓慢</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n31"><a class="md-toc-inner" href="#频繁gc">频繁GC</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n51"><a class="md-toc-inner" href="#oom">OOM</a></span></p></div><h5 id='参数'><span>参数</span></h5><ul><li><span>Xss：虚拟机栈、本地方法栈；无限递归（SOF）;递归方法本地变量过多（SOF）;无限加线程(OOM)；P61,单线程下调用方法太深导致sof，多线程下每个线程栈占据固定空间，创建线程太多导致oom，使用64vm或者减少堆大小或者减少每个线程栈大消除以增大可用线程数，每个线程内调用方法太深导致sof。</span></li><li><span>Xms、Xmx：堆，不断创建对象(OOM:内存泄漏(GCROOT)、内存溢出(生命周期、堆参数))；字符串常量池；P63</span></li><li><span>XX:DirectMemery：直接；内存区</span></li></ul><h5 id='线程数限制'><span>线程数限制</span></h5><p><span>JVM中可以生成的最大数量由JVM的堆内存大小、Thread的Stack内存大小、系统最大可创建的线程数量（Java线程的实现是基于底层系统的线程机制来实现的，系统可以生成的最大线程数：/proc/sys/kernel/threads-max，系统可创建的最大pid数：/proc/sys/kernel/pid_max）三个方面影响。</span></p><p><span>增大堆内存（-Xms，-Xmx）会减少可创建的线程数量（栈区=可用内存-堆-直接内存），增大线程栈内存（-Xss，32位系统中此参数值最小为60K）也会减少可创建的线程数量（每个现象独立栈，栈区空间一定下，单个线程栈占据内存越小，可创建线程越多）。</span></p><h5 id='cpu占用过高'><span>cpu占用过高</span></h5><ul><li><p><span>查看GCRoot：dump出堆文件，使用visualvm查看。</span></p></li><li><p><span>通过top，显示进程运行信息列表，得到高CPU占用的Java进程。找到Java进程PID：</span><code>jps -mlv</code><span>：PID+main方法参数+主类包名+JVM参数。</span></p></li><li><p><span>找到高CUP线程：</span><code>top -H p java-pid</code><span>可以查看该进程下各个线程的cpu使用情况，一般超过80%就是比较高的，80%左右是合理情况，将线程PID转化为16进制，用于之后在堆快照根据nid找到高cpu占用的线程。</span></p></li><li><p><span>获取线程栈：</span><code>jstack pid &gt;filename.log</code><span>，线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，得到线程状态（TIMED_WATING、WATING、BLOCKED、RUNNABLE）、调用关系，CPU执行时间，锁的持有状态（locked），等待锁的状态(waiting to lock)，等待事件(Wait on condition )。通过分析高cpu线程的栈快照，以定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等。 </span></p><p><span>如果是正常的用户线程，则通过该线程的堆栈信息查看其具体是在哪处用户代码处运行比较消耗CPU；如果该线程是 </span><code>VMThread</code><span>，则一般是频繁触发GC导致cpu占用高，可以导出系统当前的内存数据，分析得出内存中主要是什么对象比较消耗内存，进而可以处理相关代码。</span></p></li></ul><h5 id='服务缓慢'><span>服务缓慢</span></h5><ul><li><span>cpu占用过高，同上。</span></li><li><span>CPU并不高，并且系统内存占用率也比较低。1，如果是接口调用比较耗时，并且是不定时出现，则可以通过压测的方式加大阻塞点出现的频率，从而通过 </span><code>jstack</code><span>查看堆栈信息，找到阻塞点；2，如果是某个功能突然出现停滞的状况，这种情况也无法复现，此时可以隔一段事件多次导出 </span><code>jstack</code><span>日志的方式对比哪些用户线程是一直都处于等待状态，这些线程就是可能存在问题的线程；3，如果通过 </span><code>jstack</code><span>可以查看到死锁状态，则可以检查产生死锁的两个线程的具体阻塞点，从而处理相应的问题。</span></li></ul><h5 id='频繁gc'><span>频繁GC</span></h5><p><a href='https://tech.meituan.com/2017/12/29/jvm-optimize.html' target='_blank' class='url'>https://tech.meituan.com/2017/12/29/jvm-optimize.html</a></p><ul><li><p><code>jstat -gc pid interval count</code><span> 查看 GC 情况。eden、survior0/1、老年代、元空间容量及使用情况，young/full GC 次数和耗时。</span></p></li><li><p><span>分区大小：活跃数据的大小是指，是Full GC后堆中老年代占用空间的大小。</span></p><p><span>总大小</span><span>	</span><span>3-4 倍活跃数据的大小</span>
+<span>新生代</span><span>	</span><span>1-1.5 活跃数据的大小</span>
+<span>老年代</span><span>	</span><span>2-3 倍活跃数据的大小</span></p></li><li><p><span>full gc 触发条件一般是 老年代空间不足，大量对象频繁进入老年代 + 老年代空间释放不掉。</span></p><p><span>1，系统并发高、或者数据量过大，导致 young gc频繁，且gc后存活对象太多，动态年龄判断：每次gc存货对象年龄加一，当survior区中某个年龄对象占据内存大小占survior区容量的一半，将自动更新晋升老年代的阈值，降低进入老年代门槛，下次GC时将年龄超过阈值的对象被晋升到老年代，内存担保：survivor 区存放不下存活对象，直接放入老年代，老年代迅速堆满。调整内存分配比例 eden，survior0，survior1默认8：1：1，增大survior区占比。</span></p><p><span>2，程序一次性加载过多对象到内存 （大对象：内存担保），导致频繁有大对象进入老年代 造成full gc。</span></p><p><span>3，gc频率持续上涨，而且full gc后回收效果不好，可能存在内存溢出的情况，老年代驻留了大量释放不掉的对象， 只要有一点点对象进入老年代就触发 full gc。 dump 排查具体原因。</span></p><p><span>4，年轻代和老年代的内存都比较低，可能是元数据区加载了太多类，或者大量使用cglib工具生成大量代理类，触发full gc。</span></p><p><span>5，老年代内存不高，频繁发生full gc，手动System.gc()。</span></p></li><li><p><span>young GC、minor GC:通常情况下，由于新生代空间较小，Eden区很快被填满，就会导致频繁Minor GC，因此可以通过增大新生代空间来降低Minor GC的频率。避免经常发生内存担保和动态晋升年龄计算，对象在新生代得到充分回收，只有生命周期长的对象才进入老年代,这样老年代增速变慢，full GC频率自然也会降低，同时因为单次 Young GC 时间更多取决于存活对象的数量，而非 Eden 区的大小，增大新生空间不会明显增大young GC 耗时。如果应用存在大量的短期对象，应该选择较大的年轻代；如果存在相对较多的持久对象，老年代应该适当增大。</span></p></li><li><p><span>MaxTenuringThreshold 要尽量合理，不能设置太大，否则有些长寿对象在每次 GC 时都会在两个 Survivor 区之间来回复制，无疑是增加了复制阶段的耗时，新生代不断增长直到Survivor区溢出，一旦溢出发生，Eden+Svuvivor中对象将不再依据年龄全部提升到老年代，这样对象老化的机制就失效了。设置过小使对象过早晋升，即对象不能在新生代充分被回收，大量短期对象被晋升到老年代，老年代空间迅速增长，引起频繁的full GC。</span></p></li></ul><p>&nbsp;</p><h5 id='oom'><span>OOM</span></h5><p><a href='https://www.anvilliu.com/2021/04/01/JVM%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%EF%BC%88OOM%EF%BC%89%E7%9A%849%E7%A7%8D%E7%B1%BB%E5%9E%8B/' target='_blank' class='url'>https://www.anvilliu.com/2021/04/01/JVM%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%EF%BC%88OOM%EF%BC%89%E7%9A%849%E7%A7%8D%E7%B1%BB%E5%9E%8B/</a></p><p><a href='https://blog.51cto.com/u_15257216/2861461' target='_blank' class='url'>https://blog.51cto.com/u_15257216/2861461</a></p><ul><li><p><span>OOM heap space：java堆内存溢出，一般由于内存泄露或者堆的大小设置不当导致内存溢出引起。内存泄露就是某些对象不再被应用程序使用，而GC无法回收的情况，这些对象会无限期保留在Java堆空间中，最终堆积触发（使用了 File 等资源没有回收，ThreadLocal用完未remove），需要通过内存监控软件查找程序中的泄露代码；；堆大小可以通过虚拟机参数-Xms,-Xmx等修改。</span></p><p><code>jmap -dump:format=b,file=file_name pid_java</code><span>实时导出堆信息，对Dump出来的堆转储快照进行分析，哪里发生了内存泄露，哪些对象占据了堆的大部分，这些对象在代码中的位置。确认内存中的对象是否是必要的，也先分是内存泄漏还是内存溢出。如果是内存泄漏，可进一步通过工具查看泄漏对象到GC Roots的引用链，这样就能够找到泄漏的对象是通过怎么样的路径与GC Roots相关联的导致垃圾回收机制无法将其回收，掌握了泄漏对象的类信息和GC Roots引用链的信息，就可以比较准确地定位泄漏代码的位置。</span></p><p><span>如果不存在泄漏，那么就是内存溢出，内存中的对象确实必须存活着，申请的内存超出了JVM能提供的内存大小。那么此时就需要通过虚拟机的堆参数（ -Xmx和-Xms）来适当调大参数；从代码上检查是否存在某些对象存活时间过长、持有时间过长的情况，尝试减少运行时内存的消耗。</span></p></li><li><p><span>OOM MetaSpace :元空间溢出，存放了被虚拟机加载的类信息，一般出现于大量Class，或者采用cglib等反射机制的情况，因为上述情况会产生大量的Class信息存储于方法区。检查代码中是否存在大量的反射生成的代理类操作。根据dump出的堆找到已加载的类中查找最昂贵的类加载器，从此类加载器中可以提取已加载类，并且按实例对此类进行排序，以使可疑对象排在首位，以此排除造成该OOM问题的程序代码。应用长时间运行，类型数据回收条件苛刻，重启强制回收。通过更改方法区的大小来解决，使用MetaspaceSize、MaxMetaspaceSize来修改。</span></p></li><li><p><span>OOM stack：每个线程拥有独立栈，栈区空间大小一定下，可创建线程总数存在上限，不断创建线程将导致OOM，尝试减少每个线程栈大小-Xss，单个线程栈占据内存越小，可创建线程越多。一台服务器可以创建的线程数依赖于物理配置和平台，如最大pid值、可创建线程总数限制。</span></p></li><li><p><span>SOF：JVM 虚拟机栈是有深度的，在执行方法的时候会伴随着入栈和出栈。程序中存在深度递归调用、方法内声明了海量的局部变量导致栈帧大小增大、执行了大量方法，导致线程栈空间耗尽，栈大小设置太小也会出现此种溢出。修复引发无限递归调用的异常代码；排查是否存在类之间的循环依赖（当两个对象相互引用，在调用toString方法时也会产生这个异常）；需要执行大量方法或包含大量局部变量，这时可以通过虚拟机参数-Xss来适当地提高线程栈空间限制。</span></p></li><li><p><span>OOM GC overhead limit：当Java进程绝大部分时间都在进行GC，但是只恢复了很少可用堆空间，连续多次GC都是如此那么就会抛出异常。这个错误是为了避免GC最终消耗了100%的CPU，而实际应用程序无法正常进行任何实际工作。分析是哪个地方在大量消耗内存，并且无法正常回收，通过jmap -heap pid查看堆内存占用，看是否本身分配过小，加大内存。</span></p></li><li><p><span>Out of swap space：swap溢出，当JVM请求的总内存大于可用物理内存时，操作系统会开始把数据从内存中换到硬盘中。当数据将交换空间填满，并且物理空间也被填满之后会报出这个错误。操作系统配置的交换空间不足，有别的进程消耗了所有内存资源。可以增加交换空间的大小，但是对于Java的垃圾回收而言，交换是不希望发生的，因为交换过后的内存分配可能让GC暂停时间增加几个数量级。尽量避免别的进程和主要服务端程序竞争内存资源。也可以进行内存升级以从根本上增加内存大小。</span></p></li><li><p><span>OOM native method：本机方法（native method）分配失败，使用操作系统本地工具进行诊断，难度较大。</span></p></li><li><p><span>OOM Direct buffer memory：NIO使用 Native 函数库直接分配堆外内存，然后通过一个存储在 Java 堆里面的 DirectByteBuffer 对象作为这块内存的引用进行操作。这样在一些场景就避免了 Java 堆和 Native 中来回复制数据，所以性能会有所提高。由于是分配 OS 本地内存，不属于 GC 管辖范围，如果不断分配本地内存，堆内存很少使用，那么 JVM 就不需要执行 GC，DirectByteBuffer 对象就不会被回收，这时虽然堆内存充足，但本地内存可能已经不够用了，就会出现 OOM，本地直接内存溢出。</span></p><p><span>通过启动参数 MaxDirectMemorySize 调整 Direct ByteBuffer 的上限值；通过反射调用 sun.misc.Cleaner的 clean() 方法来主动释放被 Direct ByteBuffer 持有的内存空间。</span></p></li><li><p><span>OOM array size：大数组，物理空间连续，无法找到一块足够大的内存容纳当前对象。JVM 限制了数组的最大长度，JVM 在为数组分配内存前，会检查要分配的数据结构在系统中是否可寻址，通常为 Integer.MAX_VALUE-2。尽量不要用一个特别大的数组去储存，可以分成较小的多个数组批量加载需要的数据）</span></p></li><li><p><span>OOM Kill process：当内核检测到系统内存不足时，OOM killer 被激活，然后选择一个进程杀掉。Linux 内核允许进程请求比系统中可用内存更多的内存，但当大多数应用程序都消耗完自己的内存时，这些应用程序的内存需求加起来超出了物理内存（包括swap）的容量，内核（OOM killer）必须杀掉一些进程才能腾出空间保障系统正常运行。升级内存。</span></p></li></ul></div></div>
+</body>
+</html>
