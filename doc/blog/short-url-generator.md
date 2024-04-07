@@ -200,7 +200,274 @@
 
 * 分布顺序是否随机：使用排列测试[^3]检测随机序内部数据顺序是否随机。重复随机生成+布隆过滤器去重方法和递增序列+随机乱序方法的`p-value`都为1.0，均满足随机排列假设。
 
+### 附录
 
+```java
+import com.google.common.hash.BloomFilter;
+import com.google.common.hash.Funnels;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+
+public class RandomGenerator {
+    // 短url长度
+    private static final int l = 3;
+    // 数据范围[1, q]
+    private static final long q = (long) Math.pow(62, l);
+    // 预期插入量
+    private static final long n = q / 10;
+    // 误报率
+    private static final double p = 0.01;
+    // 随机数间间隔期望
+    private static final int b = (int) (q / n);
+
+
+    private static final Map<Character, Integer> CHAR_TO_INT_MAP = new HashMap<>();
+    private static final Map<Integer, Character> INT_TO_CHAR_MAP = new HashMap<>();
+
+    static {
+        String base62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < base62.length(); i++) {
+            char c = base62.charAt(i);
+            CHAR_TO_INT_MAP.put(c, i);
+            INT_TO_CHAR_MAP.put(i, c);
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        RandomGenerator generator = new RandomGenerator();
+        // warm up+jit
+        for (int i = 0; i < 32; ++i) {
+            generator.bloomFilterApproach();
+            generator.randomIncreaseApproach();
+        }
+
+        long totalTime = 0;
+        int iterations = 32;
+        List<String> bloomFilterUrls = null;
+        for (int i = 0; i < iterations; i++) {
+            System.gc();
+            long startTime = System.nanoTime();
+            bloomFilterUrls = generator.bloomFilterApproach();
+            long endTime = System.nanoTime();
+            totalTime += (endTime - startTime);
+        }
+        long averageTime = totalTime / iterations;
+        System.out.println("bf:" + averageTime / 1000 + "ms");
+
+        // write to .txt
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./out/bloomFilterUrls.txt"))) {
+            for (String url : bloomFilterUrls) {
+                writer.write(url);
+                writer.newLine();
+            }
+        }
+
+        totalTime = 0;
+        List<List<String>> randomIncreaseUrls = null;
+        for (int i = 0; i < iterations; i++) {
+            System.gc();
+            long startTime = System.nanoTime();
+            randomIncreaseUrls = generator.randomIncreaseApproach();
+            long endTime = System.nanoTime();
+            totalTime += (endTime - startTime);
+        }
+        averageTime = totalTime / iterations;
+        System.out.println("ri:" + averageTime / 1000 + "ms");
+
+
+        // write to .txt
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./out/randomIncreaseUrls.txt"))) {
+            for (List<String> urls : randomIncreaseUrls) {
+                for (String url : urls) {
+                    writer.write(url);
+                    writer.newLine();
+                }
+            }
+        }
+    }
+
+    public List<String> bloomFilterApproach() {
+        // 布隆过滤器的预期插入量为n，误报率为p
+        BloomFilter<Long> bloomFilter = BloomFilter.create(Funnels.longFunnel(), n, p);
+        Random random = new Random();
+        List<String> urls = new LinkedList<>();
+        int count = 0;
+        while (count < n) {
+            // [1,q]间随机数
+            long r = (long) (random.nextDouble() * q + 1);
+            // 判重
+            if (!bloomFilter.mightContain(r)) {
+                bloomFilter.put(r);
+                String url = long2Base62String(r);
+                urls.add(url);
+                count++;
+            }
+        }
+        return urls;
+    }
+
+    private static String long2Base62String(long value) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < l; i++) {
+            builder.append('0');
+        }
+        for (int i = l - 1; i >= 0 && value > 0; i--) {
+            builder.setCharAt(i, INT_TO_CHAR_MAP.get((int) (value % 62)));
+            value /= 62;
+        }
+        return builder.toString();
+    }
+
+    private List<List<String>> randomIncreaseApproach() {
+        // 每段数据长度
+        int len = Integer.MAX_VALUE / 1024;
+        // 数据段数
+        int m = (int) Math.ceil(1.0 * n / len);
+        List<List<String>> urls = new ArrayList<>(m);
+        for (int i = 0; i < m; ++i) {
+            urls.add(new ArrayList<>(len));
+        }
+        Random random = new Random();
+        // 初始值
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < l - 1; i++) {
+            builder.append('0');
+        }
+        builder.append('1');
+        String curr = builder.toString();
+
+        for (long i = 0; i < n; i++) {
+            urls.get((int) (i / len)).add(curr);
+            // [1,2b] 间随机数
+            int r = 1 + random.nextInt(2 * b - 1);
+            // 62进制加法
+            curr = base62Plus(curr, r);
+        }
+        // 打乱顺序
+        fisherYatesShuffle(urls, random, n, len);
+        return urls;
+    }
+
+    public static String base62Plus(String curr, int r) {
+        StringBuilder result = new StringBuilder(curr);
+        // 初始化进位为r
+        int carry = r;
+        for (int i = l - 1; i >= 0 && carry > 0; i--) {
+            // 计算当前位的和
+            int sum = CHAR_TO_INT_MAP.get(curr.charAt(i)) + carry;
+            // 更新当前位
+            result.setCharAt(i, INT_TO_CHAR_MAP.get(sum % 62));
+            // 更新进位
+            carry = sum / 62;
+        }
+        return result.toString();
+    }
+
+    public static void fisherYatesShuffle(List<List<String>> urls, Random random, long n, int l) {
+        random.nextLong();
+        for (long i = n - 1; i > 0; i--) {
+            // [0,i] 间随机数
+            long j = (long) (random.nextDouble() * (i + 1));
+            // 确定i和j分别属于哪一段
+            int segmentI = (int) (i / l);
+            int indexI = (int) (i % l);
+            int segmentJ = (int) (j / l);
+            int indexJ = (int) (j % l);
+            // 交换元素
+            String temp = urls.get(segmentI).get(indexI);
+            urls.get(segmentI).set(indexI, urls.get(segmentJ).get(indexJ));
+            urls.get(segmentJ).set(indexJ, temp);
+        }
+    }
+}
+
+
+```
+
+```python
+from scipy.stats import rankdata
+from scipy.stats import norm
+import numpy as np
+from scipy.stats import chisquare
+import numpy as np
+
+
+def chi_squared_test(sequence, m, bound):
+    n = len(sequence)
+    # 每个区间的期望出现次数
+    expected = n / m 
+
+    # 划分区间并计算每个区间的实际出现次数
+    counts = np.histogram(sequence, bins=m, range=(0, bound))[0]
+
+    chi_squared_stat, p_value = chisquare(counts, expected * np.ones(m))
+
+    return chi_squared_stat, p_value
+
+
+def permutation_test(sequence, num_permutations=10000):
+    n = len(sequence)
+    original_rank_sum = sum(rankdata(sequence))
+
+    count = 0
+    for _ in range(num_permutations):
+        permuted_sequence = np.random.permutation(sequence)
+        permuted_rank_sum = sum(rankdata(permuted_sequence))
+
+        if permuted_rank_sum >= original_rank_sum:
+            count += 1
+
+    p_value = (count + 1) / (num_permutations + 1)
+    return p_value
+
+
+def base62_to_decimal(base62):
+    decimal = 0
+    base = 62
+    for i, char in enumerate(base62):
+        if '0' <= char <= '9':
+            value = ord(char) - ord('0')
+        elif 'A' <= char <= 'Z':
+            value = ord(char) - ord('A') + 10
+        elif 'a' <= char <= 'z':
+            value = ord(char) - ord('a') + 36
+        else:
+            raise ValueError(
+                "Invalid character in base62 string: {}".format(char))
+        decimal = decimal*base + value
+    return decimal
+
+
+if __name__ == '__main__':
+    bound = 62**3
+    sequence = []
+    with open('./out/bloomFilterUrls.txt', mode='r', encoding='utf8') as f:
+        for line in f.readlines():
+            sequence.append(base62_to_decimal(line[:-1]))
+    m = 1024  
+    chi_squared_stat, p = chi_squared_test(sequence, m, bound)
+    # p较小(0.05、0.01 和 0.001)，则表明序列的分布与均匀分布显著不同
+    print(f"P-value: {p}")
+
+    p = permutation_test(sequence)
+    print(f"P-value: {p}")
+
+    sequence = []
+    with open('./out/randomIncreaseUrls.txt', mode='r', encoding='utf8') as f:
+        for line in f.readlines():
+            sequence.append(base62_to_decimal(line[:-1]))
+    m = 1024  
+    chi_squared_stat, p = chi_squared_test(sequence, m, bound)
+    # p较小(0.05、0.01 和 0.001)，则表明序列的分布与均匀分布显著不同
+    print(f"P-value: {p}")
+
+    p = permutation_test(sequence)
+    print(f"P-value: {p}")
+
+```
 
 
 
