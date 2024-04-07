@@ -13,6 +13,10 @@
 ### 博客
 
 > [PageRank网页排序算法](./doc/blog/rangerank.html)
+>
+> [短URL生成算法](./doc/blog/short-url-generator.html)
+>
+> [DelayQueue实现](./doc/blog/DelayQueue实现.html)
 
 ---
 
