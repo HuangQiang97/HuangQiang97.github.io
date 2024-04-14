@@ -17,6 +17,8 @@
 > [短URL生成算法](./doc/blog/short-url-generator.html)
 >
 > [DelayQueue实现](./doc/blog/DelayQueue实现.html)
+>
+> 调用解耦：[Guava EventBus解读](./doc/blog/EventBus.html)
 
 ---
 

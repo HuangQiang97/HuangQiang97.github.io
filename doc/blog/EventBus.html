@@ -1,0 +1,733 @@
+<!doctype html>
+<html style='font-size:16px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+/* open-sans-italic - latin-ext_latin */
+/* open-sans-700 - latin-ext_latin */
+/* open-sans-700italic - latin-ext_latin */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'JetBrains Mono NL', '更纱黑体 UI SC', "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 774px;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1260px) {
+    #write {
+        max-width: 922px;
+    }
+}
+
+@media only screen and (min-width: 1620px) {
+    #write {
+        max-width: 1080px;
+    }
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: 'JetBrains Mono NL', '更纱黑体 UI SC', "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+}
+.CodeMirror-wrap .CodeMirror-code pre {
+    font-family: 'JetBrains Mono NL'
+}
+
+</style><title>EventBus</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='guava-evenbus源码解读'><span>Guava EvenBus源码解读</span></h1><h3 id='发布订阅模型'><span>发布订阅模型</span></h3><ul><li><p><span>通过发布订阅中心建立事件发布者和事件订阅者间的通信体系。发布者和订阅者不直接通信，而是将要发布的消息交     由发布订阅中心管理，订阅者按需订阅中心中的消息，订阅者将在事件发生时被事件处理中心主动唤醒。</span></p></li><li><p><span>发布者的发布动作和订阅者的订阅动作相互独立，消息派发由发布订阅中心负责，生产者、订阅者完全解耦的。</span></p></li></ul><p><img src=".\assets\image-20240410205859440.png" alt="image-20240410205859440" style="zoom: 45%;" /></p><h3 id='guava-eventbus概述'><span>Guava EventBus概述</span></h3><ul><li><p><code>EventBus</code><span>为轻量级、进程内事件驱动组件，提供同步以及异步方式的事件驱动机制。</span></p><p><span>  </span></p><p><img src=".\assets\v2-60d8d22597f8ccfbec74773ddf1bfc23_r.jpg" alt="img" style="zoom:70%;" /></p></li><li><p><span>组成：</span><code>EventBus</code><span> 、</span><code>AsyncEventBus</code><span>提供同步和异步的事件处理机制；</span><code>Event</code><span>、</span><code>DeadEvent</code><span>事件和无订阅者的事件；</span><code>Subscriber</code><span>、</span><code>SynchronizedSubscriber</code><span>根据</span><code>handler</code><span>方法生成的线程不安全订阅者和线程安全订阅者；</span><code>perThreadDispatcher, legacyAsyncDispatcher</code><span>线程独立派发器和线程共享派发器，用于派发任务给</span><code>Subscriber</code><span>；</span><code>SubscriberRegistry</code><span>订阅者注册器，用户根据</span><code>Listener</code><span>生成</span><code>Subscriber</code><span>并注入到容器中。</span></p><p>&nbsp;</p></li><li><p><span>工作流程：定义事件订阅者</span><code>Listener</code><span>，包含事件发生时要执行的操作</span><code>handler</code><span>。将</span><code>Listener</code><span>注册到</span><code>EventBus</code><span>时，将每个</span><code>handler</code><span>封装成</span><code>Subscriber</code><span>对象，加入所等待事件的集合</span><code>Subscribers</code><span>中。当某事件发生时，等待在该事件集合</span><code>Subscribers</code><span>中的</span><code>Subscriber</code><span>对象将被调用，完成事件的处理。</span></p></li></ul><p><img src=".\assets\v2-8bd35d1da57ca7650a34fd8ab7852c6d_r.jpg" alt="img" style="zoom:50%;" /></p><h3 id='事件注册'><span>事件注册</span></h3><p>&nbsp;</p><p><img src=".\assets\v2-be424160e247db0099d3d4c1005a758e_r.jpg" alt="img" style="zoom:50%;" /></p><h5 id='register'><code>register</code></h5><ul><li><p><span>注册方法</span><code>register</code><span>：构建缓存</span><code>&lt;key=event.class, value=[Subscriber(handler)]&gt;</code><span>，将</span><mark><span>listener及其父类</span></mark><span>定义的</span><code>handler</code><span>封装成</span><code>Subscriber</code><span>对象，加入所等待事件的集合</span><code>Subscribers</code><span>中。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-def">register</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">listener</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 将listener及其父类定义的全部handler方法包换成Subscriber类型，</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 并以Map形式返回,key为等待的事件类型，value为等待该事件的多个hadler构成的Subscriber set集合</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// &lt;key=envnt.class, value=[Subscriber(handler)]&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Multimap</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">listenerMethods</span> <span class="cm-operator">=</span> <span class="cm-variable">findAllSubscribers</span>(<span class="cm-variable">listener</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">Entry</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">entry</span> : <span class="cm-variable">listenerMethods</span>.<span class="cm-variable">asMap</span>().<span class="cm-variable">entrySet</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">eventType</span> <span class="cm-operator">=</span> <span class="cm-variable">entry</span>.<span class="cm-variable">getKey</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">eventMethodsInListener</span> <span class="cm-operator">=</span> <span class="cm-variable">entry</span>.<span class="cm-variable">getValue</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 将新加入的Subscriber添加到所等待事件对应的Subscribers集合中</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// CopyOnWrite集合通过读写分离，写操作同步保证并发写入安全</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">CopyOnWriteArraySet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">eventSubscribers</span> <span class="cm-operator">=</span> <span class="cm-variable">subscribers</span>.<span class="cm-variable">get</span>(<span class="cm-variable">eventType</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 该事件未被注册过，创建新的Subscribers集合</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">eventSubscribers</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">CopyOnWriteArraySet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">newSet</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">CopyOnWriteArraySet</span><span class="cm-operator">&lt;&gt;</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// putIfAbsent: 不存在才添加; firstNonNull:获得参数列表中第一个非null值</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 双重检查防止两个线程同时发现event未注册，一个线程完成注册后，另一个线程用新的set覆盖，导致第一个线程注册Subscriber丢失</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">eventSubscribers</span> <span class="cm-operator">=</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">MoreObjects</span>.<span class="cm-variable">firstNonNull</span>(<span class="cm-variable">subscribers</span>.<span class="cm-variable">putIfAbsent</span>(<span class="cm-variable">eventType</span>, <span class="cm-variable">newSet</span>), <span class="cm-variable">newSet</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">eventSubscribers</span>.<span class="cm-variable">addAll</span>(<span class="cm-variable">eventMethodsInListener</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 622px;"></div><div class="CodeMirror-gutters" style="display: none; height: 622px;"></div></div></div></pre></li></ul><p>&nbsp;</p><h5 id='findallsubscribers'><code>findAllSubscribers</code></h5><ul><li><p><span>获取注册</span><code>listener</code><span>及其父类定义的所有</span><code>handler</code><span>方法，并以</span><code>&lt;key=event.class, value=[Subscriber(handler)]&gt;</code><span>形式返回。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-variable">Multimap</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-def">findAllSubscribers</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">listener</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Multimap</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">methodsInListener</span> <span class="cm-operator">=</span> <span class="cm-variable">HashMultimap</span>.<span class="cm-variable">create</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">clazz</span> <span class="cm-operator">=</span> <span class="cm-variable">listener</span>.<span class="cm-variable">getClass</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 将listener及其父类的全部handler方法构建&lt;envent.class,[Subscriber(handler)]&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">Method</span> <span class="cm-variable">method</span> : <span class="cm-variable">getAnnotatedMethods</span>(<span class="cm-variable">clazz</span>)) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>[] <span class="cm-variable">parameterTypes</span> <span class="cm-operator">=</span> <span class="cm-variable">method</span>.<span class="cm-variable">getParameterTypes</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">eventType</span> <span class="cm-operator">=</span> <span class="cm-variable">parameterTypes</span>[<span class="cm-number">0</span>];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">methodsInListener</span>.<span class="cm-variable">put</span>(<span class="cm-variable">eventType</span>, <span class="cm-variable">Subscriber</span>.<span class="cm-variable">create</span>(<span class="cm-variable">bus</span>, <span class="cm-variable">listener</span>, <span class="cm-variable">method</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">methodsInListener</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 253px;"></div><div class="CodeMirror-gutters" style="display: none; height: 253px;"></div></div></div></pre></li></ul><p>&nbsp;</p><h5 id='getannotatedmethodsnotcached'><code>getAnnotatedMethodsNotCached</code></h5><ul><li><p><code>getAnnotatedMethods</code><span>方法将从</span><code>&lt;listener.class,[Method]&gt;</code><span>缓存</span><code>subscriberMethodsCache</code><span>获取当前</span><code>listener</code><span>对象及其父类所有标注有</span><code>@Subscribe</code><span>的</span><code>handler</code><span>方法。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-variable">ImmutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Method</span><span class="cm-operator">&gt;</span> <span class="cm-def">getAnnotatedMethods</span>(<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">clazz</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">subscriberMethodsCache</span>.<span class="cm-variable">getUnchecked</span>(<span class="cm-variable">clazz</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">UncheckedExecutionException</span> <span class="cm-variable">e</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">throwIfUnchecked</span>(<span class="cm-variable">e</span>.<span class="cm-variable">getCause</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">throw</span> <span class="cm-variable">e</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable">LoadingCache</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">ImmutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Method</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">subscriberMethodsCache</span> <span class="cm-operator">=</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">CacheBuilder</span>.<span class="cm-variable">newBuilder</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  .<span class="cm-variable">weakKeys</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  .<span class="cm-variable">build</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">new</span> <span class="cm-variable">CacheLoader</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">ImmutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Method</span><span class="cm-operator">&gt;&gt;</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-variable">ImmutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Method</span><span class="cm-operator">&gt;</span> <span class="cm-variable">load</span>(<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">concreteClass</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">Exception</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">getAnnotatedMethodsNotCached</span>(<span class="cm-variable">concreteClass</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  });</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 415px;"></div><div class="CodeMirror-gutters" style="display: none; height: 415px;"></div></div></div></pre><p>&nbsp;</p><p><code>subscriberMethodsCache</code><span>声明为</span><code>static</code><span>变量，作为缓存只会在类加载时被加载一次，在类加载时会触发初始化方法</span><code>getAnnotatedMethodsNotCached</code></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-variable">ImmutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Method</span><span class="cm-operator">&gt;</span> <span class="cm-def">getAnnotatedMethodsNotCached</span>(<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">clazz</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//  获得listener自身的class、以及所有父类黑和接口</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//  返回值中子类在父类之前，只有子类的hanlder方法被注册，保障事件触发时，调用的是子类方法，保证多态特性</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Set</span><span class="cm-operator">&lt;?</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;</span> <span class="cm-variable">supertypes</span> <span class="cm-operator">=</span> <span class="cm-variable">TypeToken</span>.<span class="cm-variable">of</span>(<span class="cm-variable">clazz</span>).<span class="cm-variable">getTypes</span>().<span class="cm-variable">rawTypes</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Map</span><span class="cm-operator">&lt;</span><span class="cm-variable">MethodIdentifier</span>, <span class="cm-variable">Method</span><span class="cm-operator">&gt;</span> <span class="cm-variable">identifiers</span> <span class="cm-operator">=</span> <span class="cm-variable">Maps</span>.<span class="cm-variable">newHashMap</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">supertype</span> : <span class="cm-variable">supertypes</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 自身方法，不包含继承方法</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">Method</span> <span class="cm-variable">method</span> : <span class="cm-variable">supertype</span>.<span class="cm-variable">getDeclaredMethods</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 查找有`@Subscribe`标注的方法，并加入&lt;method&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">method</span>.<span class="cm-variable">isAnnotationPresent</span>(<span class="cm-variable">Subscribe</span>.<span class="cm-keyword">class</span>) <span class="cm-operator">&amp;&amp;</span> <span class="cm-operator">!</span><span class="cm-variable">method</span>.<span class="cm-variable">isSynthetic</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">MethodIdentifier</span> <span class="cm-variable">ident</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">MethodIdentifier</span>(<span class="cm-variable">method</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 保证被重写方法只加载一次，MethodIdentifier使用(methodName,parmList)作为唯一标识</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 重写方法的MethodIdentifier对象相等，保证只有子类被重写方法被注册，维持多态特性</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable">identifiers</span>.<span class="cm-variable">containsKey</span>(<span class="cm-variable">ident</span>)) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">identifiers</span>.<span class="cm-variable">put</span>(<span class="cm-variable">ident</span>, <span class="cm-variable">method</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">ImmutableList</span>.<span class="cm-variable">copyOf</span>(<span class="cm-variable">identifiers</span>.<span class="cm-variable">values</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 484px;"></div><div class="CodeMirror-gutters" style="display: none; height: 484px;"></div></div></div></pre></li></ul><p>&nbsp;</p><h5 id='subscriber'><code>Subscriber</code></h5><ul><li><p><code>Subscriber</code><span>创建时将根据</span><code>handler</code><span>方法是否有</span><code>@AllowConcurrentEvents</code><span>，创建为普通</span><code>Subscriber</code><span>或者线程安全的</span><code>SynchronizedSubscriber</code><span>，二者为继承关系，唯一区别是</span><code>SynchronizedSubscriber</code><span>执行时会加锁，保障线程安全。二者在线程池中通过反射方式执行持有的</span><code>listener</code><span>的</span><code>handler</code><span>方法。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Subscriber</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">Executor</span> <span class="cm-variable">executor</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span class="cm-variable">Subscriber</span>(<span class="cm-variable">EventBus</span> <span class="cm-variable">bus</span>, <span class="cm-variable-3">Object</span> <span class="cm-variable">target</span>, <span class="cm-variable">Method</span> <span class="cm-variable">method</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">this</span>.<span class="cm-variable">bus</span> <span class="cm-operator">=</span> <span class="cm-variable">bus</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">this</span>.<span class="cm-variable">target</span> <span class="cm-operator">=</span> <span class="cm-variable">checkNotNull</span>(<span class="cm-variable">target</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">this</span>.<span class="cm-variable">method</span> <span class="cm-operator">=</span> <span class="cm-variable">method</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">method</span>.<span class="cm-variable">setAccessible</span>(<span class="cm-atom">true</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">this</span>.<span class="cm-variable">executor</span> <span class="cm-operator">=</span> <span class="cm-variable">bus</span>.<span class="cm-variable">executor</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable-3">void</span> <span class="cm-variable">dispatchEvent</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 在线程池中通过反射方式执行持有的`listener`的`handler`方法。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">executor</span>.<span class="cm-variable">execute</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  () <span class="cm-operator">-&gt;</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">InvocationTargetException</span> <span class="cm-variable">e</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">bus</span>.<span class="cm-variable">handleSubscriberException</span>(<span class="cm-variable">e</span>.<span class="cm-variable">getCause</span>(), <span class="cm-variable">context</span>(<span class="cm-variable">event</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">InvocationTargetException</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">method</span>.<span class="cm-variable">invoke</span>(<span class="cm-variable">target</span>, <span class="cm-variable">checkNotNull</span>(<span class="cm-variable">event</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  } </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// catch exception</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-keyword">class</span> <span class="cm-def">SynchronizedSubscriber</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Subscriber</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">InvocationTargetException</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 加锁保证线程安全</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">synchronized</span> (<span class="cm-keyword">this</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">super</span>.<span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 898px;"></div><div class="CodeMirror-gutters" style="display: none; height: 898px;"></div></div></div></pre></li></ul><p>&nbsp;</p><h3 id='事件分发'><span>事件分发</span></h3><p><img src=".\assets\v2-66cd1894a173203d1823f7bb619df38a_r.jpg" alt="img" style="zoom:50%;" /></p><h5 id='post'><code>post</code></h5><ul><li><p><span>当向</span><code>EventBus</code><span>投递事件时，将找到</span><code>&lt;key=event.class, value=[Subscriber(handler)]&gt;</code><span>缓存中，用于处理</span><mark><span>对应事件及父类事件的Subscriber</span></mark><span>，进行事件处理。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-variable-3">void</span> <span class="cm-def">post</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 对应事件及父类事件的`Subscriber`</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Iterator</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">eventSubscribers</span> <span class="cm-operator">=</span> <span class="cm-variable">subscribers</span>.<span class="cm-variable">getSubscribers</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">eventSubscribers</span>.<span class="cm-variable">hasNext</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 分发任务，完成对应Subscriber调用</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">dispatcher</span>.<span class="cm-variable">dispatch</span>(<span class="cm-variable">event</span>, <span class="cm-variable">eventSubscribers</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">else</span> <span class="cm-keyword">if</span> (<span class="cm-operator">!</span>(<span class="cm-variable">event</span> <span class="cm-keyword">instanceof</span> <span class="cm-variable">DeadEvent</span>)) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 无对应Subscriber的事件已DeadEvent重新发布</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 可以为DeadEvent创建Subscriber兜底处理</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">post</span>(<span class="cm-keyword">new</span> <span class="cm-variable">DeadEvent</span>(<span class="cm-keyword">this</span>, <span class="cm-variable">event</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 276px;"></div><div class="CodeMirror-gutters" style="display: none; height: 276px;"></div></div></div></pre></li></ul><h5 id='getsubscribers'><code>getSubscribers</code></h5><ul><li><p><code>getSubscribers</code><span>的获取</span><mark><span>不仅仅是对应事件的所有Subscriber，还包括当前事件所有父类的Subscriber</span></mark><span>，保证事件层级关系能正确处理。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">Iterator</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-def">getSubscribers</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// flattenHierarchy方法将返回当前事件类型及其父类类型，且当前类型在前，父类在后</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ImmutableSet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;</span> <span class="cm-variable">eventTypes</span> <span class="cm-operator">=</span> <span class="cm-variable">flattenHierarchy</span>(<span class="cm-variable">event</span>.<span class="cm-variable">getClass</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">Iterator</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">subscriberIterators</span> <span class="cm-operator">=</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Lists</span>.<span class="cm-variable">newArrayListWithCapacity</span>(<span class="cm-variable">eventTypes</span>.<span class="cm-variable">size</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// 获得当前事件和父类事件的全部订阅者</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">eventType</span> : <span class="cm-variable">eventTypes</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">CopyOnWriteArraySet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">eventSubscribers</span> <span class="cm-operator">=</span> <span class="cm-variable">subscribers</span>.<span class="cm-variable">get</span>(<span class="cm-variable">eventType</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">eventSubscribers</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// eager no-copy snapshot</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">subscriberIterators</span>.<span class="cm-variable">add</span>(<span class="cm-variable">eventSubscribers</span>.<span class="cm-variable">iterator</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">Iterators</span>.<span class="cm-variable">concat</span>(<span class="cm-variable">subscriberIterators</span>.<span class="cm-variable">iterator</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 393px;"></div><div class="CodeMirror-gutters" style="display: none; height: 393px;"></div></div></div></pre></li></ul><h5 id='flattenhierarchycache'><code>flattenHierarchyCache</code></h5><ul><li><p><code>flattenHierarchy</code><span>方法会到</span><code>&lt;key=event.class, value=[event.class, superClass.class]&gt;</code><span>缓存</span><code>flattenHierarchyCache</code><span>中找到当前类及父类类型，因为是静态变量，所以在代码加载的时候就会缓存</span><code>Event</code><span>所有父类。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">static</span> <span class="cm-variable">ImmutableSet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;</span> <span class="cm-def">flattenHierarchy</span>(<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">concreteClass</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">flattenHierarchyCache</span>.<span class="cm-variable">getUnchecked</span>(<span class="cm-variable">concreteClass</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">UncheckedExecutionException</span> <span class="cm-variable">e</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">throw</span> <span class="cm-variable">Throwables</span>.<span class="cm-variable">propagate</span>(<span class="cm-variable">e</span>.<span class="cm-variable">getCause</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">} </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable">LoadingCache</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">ImmutableSet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;&gt;</span> <span class="cm-variable">flattenHierarchyCache</span> <span class="cm-operator">=</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">CacheBuilder</span>.<span class="cm-variable">newBuilder</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  .<span class="cm-variable">weakKeys</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  .<span class="cm-variable">build</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">new</span> <span class="cm-variable">CacheLoader</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span>, <span class="cm-variable">ImmutableSet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;&gt;</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// &lt;Class&lt;?&gt;&gt; is actually needed to compile</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-meta">@SuppressWarnings</span>(<span class="cm-string">"RedundantTypeArguments"</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-variable">ImmutableSet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;</span> <span class="cm-variable">load</span>(<span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;</span> <span class="cm-variable">concreteClass</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">ImmutableSet</span>.<span class="cm-operator">&lt;</span><span class="cm-variable">Class</span><span class="cm-operator">&lt;?&gt;&gt;</span><span class="cm-variable">copyOf</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 获得concreteClass及其所有父类，子类在前，父类在后</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">TypeToken</span>.<span class="cm-variable">of</span>(<span class="cm-variable">concreteClass</span>).<span class="cm-variable">getTypes</span>().<span class="cm-variable">rawTypes</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 507px;"></div><div class="CodeMirror-gutters" style="display: none; height: 507px;"></div></div></div></pre></li></ul><p>&nbsp;</p><h3 id='事件执行'><span>事件执行</span></h3><p><code>SubscriberRegistry().post</code><span>方法的事件分发器</span><code>dispatch</code><span>常见的类型可以分为两类：</span><code>PerThreadQueuedDispatcher, LegacyAsyncDispatcher</code></p><p>&nbsp;</p><h5 id='perthreaddispatch'><code>perThreadDispatch</code></h5><ul><li><p><code>EventBus</code><span>默认分发器，默认使用</span><code>DirectExecutor</code><span>线程池，由提交任务的线程去执行任务，属于同步模型，线程间独立分发，线程内</span><code>BFS</code><span>有序处理。</span></p></li><li><p><span>线程间：为每一个调用</span><code>SubscriberRegistry().post()</code><span>方法的线程使用一个线程独立的队列</span><code>queueForThread</code><span>，缓存各自待分发的</span><code>Subscriber</code><span>，线程独立分发调度事件，防止多线程竞争以及容器的并发读写。</span></p></li><li><p><span>线程内：使用线程独立</span><code>dispatching</code><span>标记当前线程是否已经开始分发任务，</span><mark><span>BFS方式处理事件</span></mark><span>，只会在最顶层一处处理</span><code>handler</code><span>调用。同时线程内</span><code>BFS</code><span>方式嵌套事件处理，严格的</span><code>FIFO</code><mark><span>保证线程内事件执行顺序和发布顺序一致，以及同一事件的多个Subscriber的处理顺序和注册顺序一致</span></mark><span>。</span></p></li><li><p><span>处理流程：</span></p><p><span>--&gt;当前线程分发事件</span><code>A</code><span>，</span><code>A</code><span>的</span><code>handler</code><span>加入队列，设置</span><code>dispatching=true</code><span>，进入</span><code>A</code><span>的</span><code>handler</code><span>处理，</span></p><p><span>--&gt;  如果使用</span><code>DirectExecutor</code><span>线程池（默认线程池），将由当前线程执行</span><code>handler</code><span>，假设</span><code>handler</code><span>中又分发事件</span><code>B</code><span>，</span></p><p><span>--&gt;  线程内的</span><code>dispatch()</code><span>再次被调用于</span><code>B</code><span>事件分发，此时</span><code>dispatching=true</code><span>，事件</span><code>B</code><span>的</span><code>handler</code><span>将只是加入队列，不会继续</span><code>handler</code><span>处理，</span></p><p><span>--&gt;  </span><code>dispatch()</code><span>方法返回，继续在最顶层处理队列中</span><code>handler</code><span>调用，</span></p><p><span>--&gt;  防止</span><code>DFS</code><span>方式不断调度运行</span><code>handler</code><span>，造成</span><code>SOF</code><span>，</span></p><p><span>--&gt;  </span><code>BFS</code><span>方式嵌套事件处理，处理线程在处理完事件</span><code>A</code><span>的所有</span><code>handler</code><span>后再处理</span><code>B</code><span>事件，以及同一事件的多个Subscriber的处理顺序和注册顺序一致。</span></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/** 存储当前线程待分发的事件，有界队列，最大值为int的最大值 */</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">ThreadLocal</span><span class="cm-operator">&lt;</span><span class="cm-variable">Queue</span><span class="cm-operator">&lt;</span><span class="cm-variable">Event</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">queue</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ThreadLocal</span><span class="cm-operator">&lt;</span><span class="cm-variable">Queue</span><span class="cm-operator">&lt;</span><span class="cm-variable">Event</span><span class="cm-operator">&gt;&gt;</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">protected</span> <span class="cm-variable">Queue</span><span class="cm-operator">&lt;</span><span class="cm-variable">Event</span><span class="cm-operator">&gt;</span> <span class="cm-variable">initialValue</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">Queues</span>.<span class="cm-variable">newArrayDeque</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/** 标志位标记当前线程是否已经开始分发任务，BFS处理事件，防止不断递归handler造成SOF */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">ThreadLocal</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Boolean</span><span class="cm-operator">&gt;</span> <span class="cm-variable">dispatching</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ThreadLocal</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Boolean</span><span class="cm-operator">&gt;</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">protected</span> <span class="cm-variable-3">Boolean</span> <span class="cm-variable">initialValue</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-atom">false</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 分发事件，执行hander处理逻辑</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-def">dispatch</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>, <span class="cm-variable">Iterator</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">subscribers</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">checkNotNull</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">checkNotNull</span>(<span class="cm-variable">subscribers</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 当Dispatcher被多线程调用时，如果不设置线程独立队列，将导致队列的并发读写竞争和读写错误</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 独立线程发布事件，其调度独立，不用等待其他线程的事件处理完成</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">Queue</span><span class="cm-operator">&lt;</span><span class="cm-variable">Event</span><span class="cm-operator">&gt;</span> <span class="cm-variable">queueForThread</span> <span class="cm-operator">=</span> <span class="cm-variable">requireNonNull</span>(<span class="cm-variable">queue</span>.<span class="cm-variable">get</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">queueForThread</span>.<span class="cm-variable">offer</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Event</span>(<span class="cm-variable">event</span>, <span class="cm-variable">subscribers</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// dispatching用于表示当前线程已经开始分发任务，防止递归分发导致SOF</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 如果事件A的handler导致了事件B的发布，B在dispatch()中在将B对应Subscriber加入队列后即返回，继续完成已有队列中handle调度</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// BFS方式嵌套事件处理：事件A的handler导致事件B被发布，处理线程在处理完事件A的所有handler后再处理B事件。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable">dispatching</span>.<span class="cm-variable">get</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">dispatching</span>.<span class="cm-variable">set</span>(<span class="cm-atom">true</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Event</span> <span class="cm-variable">nextEvent</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 初始队列只有一个元素，但是Subscriber的处理可能导致新的事件被分发，队列元素增加，需要循环处理</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">while</span> ((<span class="cm-variable">nextEvent</span> <span class="cm-operator">=</span> <span class="cm-variable">queueForThread</span>.<span class="cm-variable">poll</span>()) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable">nextEvent</span>.<span class="cm-variable">subscribers</span>.<span class="cm-variable">hasNext</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 分发当前事件对应的全部Subscriber</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">nextEvent</span>.<span class="cm-variable">subscribers</span>.<span class="cm-variable">next</span>().<span class="cm-variable">dispatchEvent</span>(<span class="cm-variable">nextEvent</span>.<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">finally</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 当前线程的全部任务分发完成，清空缓存队列</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">dispatching</span>.<span class="cm-variable">remove</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">queue</span>.<span class="cm-variable">remove</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1037px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1037px;"></div></div></div></pre><p>&nbsp;</p><h5 id='legacyasyncdispatcher'><code>LegacyAsyncDispatcher</code></h5><ul><li><p><code>AsyncEventBus</code><span>默认分发器，强制自定义线程池，一般是异步执行任务，多线程共享等待队列，</span><mark><span>DFS处理，事件间和事件内无执行顺序保证</span></mark><span>。</span></p></li><li><p><span>线程间：多个线程通过同一个</span><code>Dispatcher</code><span>分发的事件将位于同一个队列，但是</span><code>ConcurrentLinkedQueue</code><span>在高并发环境下，事件整体的出队顺序可能与它们发布顺序不同(非阻塞算法、并发修改、内存一致性效应、线程调度和执行延迟)，</span><mark><span>事件处理顺序和发布顺序不一定一致</span></mark><span>。</span></p></li><li><p><span>线程内：异步处理事件订阅，采用</span><code>DFS</code><span>方式处理队列事件，如果事件A某个的</span><code>handler</code><span>触发了事件</span><code>B</code><span>的发布，线程先处理事件</span><code>B</code><span>所有的</span><code>handler</code><span>后，再返回继续处理事件</span><code>A</code><span>的其它</span><code>handler</code><span>。同样因为</span><code>ConcurrentLinkedQueue</code><span>在高并发环境下，出队顺序可能与它们加入队列的顺序不同，</span><mark><span>同一个事件的多个handler的执行顺序不一定和注册顺序一致</span></mark><span>。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-keyword">class</span> <span class="cm-def">LegacyAsyncDispatcher</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Dispatcher</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">/** 并发安全的队列实例，用于存储多个线程post的事件和对应的订阅者，非严格FIFO */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">ConcurrentLinkedQueue</span><span class="cm-operator">&lt;</span><span class="cm-variable">EventWithSubscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">queue</span> <span class="cm-operator">=</span> <span class="cm-variable">Queues</span>.<span class="cm-variable">newConcurrentLinkedQueue</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">dispatch</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>, <span class="cm-variable">Iterator</span><span class="cm-operator">&lt;</span><span class="cm-variable">Subscriber</span><span class="cm-operator">&gt;</span> <span class="cm-variable">subscribers</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">checkNotNull</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// DFS方式处理handler</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// ConcurrentLinkedQueue在高并发环境下,出队顺序可能与入队列的顺序不同，非严格FIFO</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable">subscribers</span>.<span class="cm-variable">hasNext</span>()) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">queue</span>.<span class="cm-variable">add</span>(<span class="cm-keyword">new</span> <span class="cm-variable">EventWithSubscriber</span>(<span class="cm-variable">event</span>, <span class="cm-variable">subscribers</span>.<span class="cm-variable">next</span>()));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">EventWithSubscriber</span> <span class="cm-variable">e</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">while</span> ((<span class="cm-variable">e</span> <span class="cm-operator">=</span> <span class="cm-variable">queue</span>.<span class="cm-variable">poll</span>()) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">e</span>.<span class="cm-variable">subscriber</span>.<span class="cm-variable">dispatchEvent</span>(<span class="cm-variable">e</span>.<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 461px;"></div><div class="CodeMirror-gutters" style="display: none; height: 461px;"></div></div></div></pre></li></ul><p>&nbsp;</p><h5 id='订阅者执行顺序'><span>订阅者执行顺序</span></h5><ul><li><p><code>EventBus</code><span>：同一个事件的多个订阅者，谁先注册到</span><code>EventBus</code><span>谁先执行。如果是在同一个</span><code>Listener</code><span>中的多个订阅者一起被注册，收到事件的顺序跟方法名有关。</span></p></li><li><p><code>AsyncEventBus</code><span>同一个事件的多个订阅者，它们的注册顺序跟接收到事件的顺序上没有任何联系，在新的线程中，异步并发的执行自己的任务。</span></p><p><span>  </span></p></li></ul><h3 id='线程执行'><span>线程执行</span></h3><h5 id='线程池'><span>线程池</span></h5><ul><li><p><span>在根据方法创建订阅者时，根据方法是否标注为</span><code>@AllowConcurrentEvents</code><span>，创建非线程安全的</span><code>Subscriber</code><span>或者线程安全的</span><code>SynchronizedSubscriber</code><span>。</span></p></li><li><p><span>无论是</span><code>Subscriber</code><span>还是</span><code>SynchronizedSubscriber</code><span>他们的</span><code>dispatchEvent()</code><span>都是将任务提交到线程池执行，通过反射执行方法，而他们的线程池参数来自</span><code>EventBus</code><span>和</span><code>AsyncEventBus</code><span>。</span></p></li><li><p><code>EventBus</code><span>的</span><code>Executor</code><span>为非必须参数，默认是</span><code>DirectExecutor</code><span>，该线程池的作用是让提交任务的线程去执行任务，</span><mark><span>默认是同步执行</span></mark><span>，</span><code>Dispatcher</code><span>参数自定义类型为</span><code>Dispatcher</code><span>或者</span><code>LegacyAsyncDispatcher</code><span>。</span></p></li><li><p><code>AsyncEventBus</code><span>的</span><code>Executor</code><span>强制用户传入，由用户决定线程池类型，</span><mark><span>一般是异步执行</span></mark><span>，任务提交线程池后就返回，且</span><code>Dispatcher</code><span>参数必须为</span><code>LegacyAsyncDispatcher</code><span>类型。</span></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">EventBus</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 默认是`DirectExecutor`</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">Executor</span> <span class="cm-variable">executor</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">Dispatcher</span> <span class="cm-variable">dispatcher</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">AsyncEventBus</span> <span class="cm-keyword">extends</span> <span class="cm-variable">EventBus</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// `Executor`强制用户传入，`Dispatcher`参数必须为`LegacyAsyncDispatcher`类型。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">public</span> <span class="cm-variable">AsyncEventBus</span>(<span class="cm-variable">Executor</span> <span class="cm-variable">executor</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">super</span>(<span class="cm-string">"default"</span>, <span class="cm-variable">executor</span>, <span class="cm-variable">Dispatcher</span>.<span class="cm-variable">legacyAsync</span>(), <span class="cm-variable">LoggingHandler</span>.<span class="cm-variable">INSTANCE</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Subscriber</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// EventBus.executor</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">Executor</span> <span class="cm-variable">executor</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-keyword">private</span> <span class="cm-keyword">final</span> <span class="cm-variable">Method</span> <span class="cm-variable">method</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable-3">Object</span> <span class="cm-variable">target</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable-3">void</span> <span class="cm-variable">dispatchEvent</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 将任务提交到线程池执行</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">executor</span>.<span class="cm-variable">execute</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  () <span class="cm-operator">-&gt;</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">InvocationTargetException</span> <span class="cm-variable">e</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">bus</span>.<span class="cm-variable">handleSubscriberException</span>(<span class="cm-variable">e</span>.<span class="cm-variable">getCause</span>(), <span class="cm-variable">context</span>(<span class="cm-variable">event</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">InvocationTargetException</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-comment">//通过反射执行handler方法中的逻辑</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">method</span>.<span class="cm-variable">invoke</span>(<span class="cm-variable">target</span>, <span class="cm-variable">checkNotNull</span>(<span class="cm-variable">event</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  } </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// catch exception</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-keyword">class</span> <span class="cm-def">SynchronizedSubscriber</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Subscriber</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable-3">Object</span> <span class="cm-variable">event</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">InvocationTargetException</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// // 加锁保证线程安全</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">synchronized</span> (<span class="cm-keyword">this</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">super</span>.<span class="cm-variable">invokeSubscriberMethod</span>(<span class="cm-variable">event</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1107px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1107px;"></div></div></div></pre><h5 id='并发模型'><span>并发模型</span></h5><ul><li><p><span>整体的并发模型由：</span><code>EventBus</code><span> 、</span><code>AsyncEventBus</code><span>；</span><code>Executor</code><span>；</span><code>Subscriber</code><span>、</span><code>SynchronizedSubscriber</code><span>共同决定。</span></p></li><li><p><span>事件总线：</span><code>EventBus</code><span>默认使用</span><code>DirectExecutor</code><span>，</span><code>Subscriber</code><span>将在发布事件的同一个线程中被调用，同步执行。</span>
+<code>AsyncEventBus</code><span>使用线程池来处理事件，允许事件处理异步进行。</span></p></li><li><p><span>线程模型：</span><code>DirectExecutor</code><span>为单线程处理，即使使用 </span><code>AsyncEventBus</code><span>，也不能实现并行处理。使用多线程线程池时，</span><code>EventBus</code><span>和</span><code>AsyncEventBus</code><span> 可以利用多个线程进行事件处理。</span></p></li><li><p><span>订阅者类型：根据方法是否标注为</span><code>@AllowConcurrentEvents</code><span>，创建</span><code>Subscriber</code><span>或者</span><code>SynchronizedSubscriber</code><span>。二者的区别在于</span><code>SynchronizedSubscriber</code><span>通过加锁保证</span><code>handler</code><span>并发安全。</span></p></li><li><p><span>上述三个因素各自独立，无绑定关系，共同影响并发模型。</span></p></li></ul><h3 id='优缺点'><span>优缺点</span></h3><ul><li><p><span>简单易上手。</span></p></li><li><p><span>局限于进程内使用，无法实现跨进程处理。</span></p></li><li><p><span>基于内存，且没有任何持久化机制。</span></p></li><li><p><span>不支持事务。</span></p></li><li><p><span>不支持设置同一消息的订阅者消费顺序，默认按照注册顺序执行。</span></p></li><li><p><span>不支持消息过滤。</span></p></li></ul><p>&nbsp;</p></div></div>
+</body>
+</html>
