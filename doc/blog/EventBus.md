@@ -1,5 +1,7 @@
 # Guava EvenBus源码解读
 
+[toc]
+
 ### 发布订阅模型
 
 * 通过发布订阅中心建立事件发布者和事件订阅者间的通信体系。发布者和订阅者不直接通信，而是将要发布的消息交     由发布订阅中心管理，订阅者按需订阅中心中的消息，订阅者将在事件发生时被事件处理中心主动唤醒。
@@ -274,17 +276,17 @@
 
 ##### `perThreadDispatch`
 
-* `EventBus`默认分发器，默认使用`DirectExecutor`线程池，由提交任务的线程去执行任务，属于同步模型，线程间独立分发，线程内`BFS`有序处理。
+* `EventBus`默认分发器，使用`DirectExecutor`线程池，由提交任务的线程去执行任务，属于同步模型，线程间独立分发，线程内`BFS`有序处理。
 
 * 线程间：为每一个调用`SubscriberRegistry().post()`方法的线程使用一个线程独立的队列`queueForThread`，缓存各自待分发的`Subscriber`，线程独立分发调度事件，防止多线程竞争以及容器的并发读写。
 
-* 线程内：使用线程独立`dispatching`标记当前线程是否已经开始分发任务，==BFS方式处理事件==，只会在最顶层一处处理`handler`调用。同时线程内`BFS`方式嵌套事件处理，严格的`FIFO`==保证线程内事件执行顺序和发布顺序一致，以及同一事件的多个Subscriber的处理顺序和注册顺序一致==。
+* 线程内：使用线程独立`dispatching`变量标记当前线程是否已经开始分发任务，==BFS方式处理事件==，只会在最顶层一处处理`handler`调用。同时线程内`BFS`方式嵌套事件处理，严格的`FIFO`==保证线程内事件执行顺序和发布顺序一致，以及同一事件的多个Subscriber的处理顺序和注册顺序一致==。
 
 * 处理流程：
 
    -->当前线程分发事件`A`，`A`的`handler`加入队列，设置``dispatching=true``，进入`A`的`handler`处理，
 
-   -->  如果使用`DirectExecutor`线程池（默认线程池），将由当前线程执行`handler`，假设`handler`中又分发事件`B`，
+   --> 使用`DirectExecutor`线程池，将由当前线程执行`handler`，假设`handler`中又分发事件`B`，
   
    -->  线程内的`dispatch()`再次被调用于`B`事件分发，此时`dispatching=true`，事件`B`的`handler`将只是加入队列，不会继续`handler`处理，
   
@@ -345,7 +347,7 @@ void dispatch(Object event, Iterator<Subscriber> subscribers) {
 
 ##### `LegacyAsyncDispatcher`
 
-* `AsyncEventBus`默认分发器，强制自定义线程池，一般是异步执行任务，多线程共享等待队列，==DFS处理，事件间和事件内无执行顺序保证==。
+* `AsyncEventBus`默认分发器，强制自定义线程池，一般是异步执行任务（如果使用`DirectExecutor`线程池则是同步），多线程共享等待队列，==DFS处理，事件间和事件内无执行顺序保证==。
 
 * 线程间：多个线程通过同一个`Dispatcher`分发的事件将位于同一个队列，但是`ConcurrentLinkedQueue`在高并发环境下，事件整体的出队顺序可能与它们发布顺序不同(非阻塞算法、并发修改、内存一致性效应、线程调度和执行延迟)，==事件处理顺序和发布顺序不一定一致==。
 
@@ -390,18 +392,19 @@ void dispatch(Object event, Iterator<Subscriber> subscribers) {
 
 * 在根据方法创建订阅者时，根据方法是否标注为`@AllowConcurrentEvents`，创建非线程安全的`Subscriber`或者线程安全的`SynchronizedSubscriber`。
 * 无论是`Subscriber`还是`SynchronizedSubscriber`他们的`dispatchEvent()`都是将任务提交到线程池执行，通过反射执行方法，而他们的线程池参数来自`EventBus`和`AsyncEventBus`。
-* `EventBus`的`Executor`为非必须参数，默认是`DirectExecutor`，该线程池的作用是让提交任务的线程去执行任务，==默认是同步执行==，`Dispatcher`参数自定义类型为`Dispatcher`或者`LegacyAsyncDispatcher`。
-* `AsyncEventBus`的`Executor`强制用户传入，由用户决定线程池类型，==一般是异步执行==，任务提交线程池后就返回，且`Dispatcher`参数必须为`LegacyAsyncDispatcher`类型。
+* `EventBus`的`Executor`参数默认是`DirectExecutor`，该线程池的作用是让提交任务的线程去执行任务，==同步执行==，`Dispatcher`参数默认为`PerThreadQueuedDispatcher`，线程间事件分发独立。
+* `AsyncEventBus`的`Executor`强制用户传入，由用户决定线程池类型，==一般是异步执行==，任务提交线程池后就返回，且`Dispatcher`参数必须为`LegacyAsyncDispatcher`类型，线程间共享等待队列。
 
 ```java
 public class EventBus {
     // 默认是`DirectExecutor`
     private final Executor executor;
+    // 默认是`PerThreadQueuedDispatcher`
     private final Dispatcher dispatcher;
 }
 
 public class AsyncEventBus extends EventBus {
-    // `Executor`强制用户传入，`Dispatcher`参数必须为`LegacyAsyncDispatcher`类型。
+    // `Executor`强制用户传入，`Dispatcher`参数默认为`LegacyAsyncDispatcher`类型。
   public AsyncEventBus(Executor executor) {
     super("default", executor, Dispatcher.legacyAsync(), LoggingHandler.INSTANCE);
   }
@@ -446,21 +449,166 @@ class Subscriber {
 
 ##### 并发模型
 
-* 整体的并发模型由：`EventBus` 、`AsyncEventBus`；`Executor`；`Subscriber`、`SynchronizedSubscriber`共同决定。
+* 整体的并发模型由：`EventBus` 、`AsyncEventBus`；`Executor`；`Subscriber`、`SynchronizedSubscriber`；`PerThreadQueuedDispatcher`、`LegacyAsyncDispatcher`共同决定。
 * 事件总线：` EventBus`默认使用`DirectExecutor`，`Subscriber`将在发布事件的同一个线程中被调用，同步执行。
-    `AsyncEventBus`使用线程池来处理事件，允许事件处理异步进行。
+    `AsyncEventBus`使用自定义线程池来处理事件，允许事件处理异步进行。
 * 线程模型：`DirectExecutor`为单线程处理，即使使用 `AsyncEventBus`，也不能实现并行处理。使用多线程线程池时，`EventBus `和`AsyncEventBus` 可以利用多个线程进行事件处理。
 * 订阅者类型：根据方法是否标注为`@AllowConcurrentEvents`，创建`Subscriber`或者`SynchronizedSubscriber`。二者的区别在于`SynchronizedSubscriber`通过加锁保证`handler`并发安全。
-* 上述三个因素各自独立，无绑定关系，共同影响并发模型。
+* 事件分发方式：`PerThreadQueuedDispatcher`线程间事件分发独立，`BFS`方式执行；`LegacyAsyncDispatcher`线程间共享事件分发等待队列，`DFS`方式执行
+* ` EventBus`强制绑定`DirectExecutor`和`PerThreadQueuedDispatcher`；`AsyncEventBus`强制绑定`LegacyAsyncDispatcher`。上述三个因素各自独立，事件总线、线程模型、订阅者类型三者共同影响并发模型。
 
 ### 优缺点
 
 * 简单易上手。
-
 * 局限于进程内使用，无法实现跨进程处理。
-
 * 基于内存，且没有任何持久化机制。
-* 不支持事务。
 * 不支持设置同一消息的订阅者消费顺序，默认按照注册顺序执行。
 * 不支持消息过滤。
 
+### Spring Event对比
+
+##### 工作流程
+
+​	--> 定义事件`ApplicationEvent`及对应的`ApplicationListener`；
+
+​	--> 当事件发生时，通过`ApplicationEventPublisher`接口实现类的`publistEvent`方法发布事件；
+
+​	--> `publistEvent`方法通过`ApplicationEventMulticaster`接口实现类的`multicastEvent`方法广播事件；
+
+​	-->`multicastEvent`方法找到事件的全部`Listener`，并通过`invokeListener`执行他们定义的事件处理逻辑；
+
+​	-->`invokeListener`方法将通过`ApplicationListenerMethodAdapter`的`onApplicationEvent`执行定义的事件处理逻辑，这里的`ApplicationListenerMethodAdapter`是`handler`方法的适配器，负责统一`handler`方法的调用；
+
+​	-->最后`onApplicationEvent`将通过`processEvent`方法使用反射调用，真正执行`handler`逻辑。
+
+
+
+##### 过滤特性
+
+* `Spring Event`支持在`handler`定义时指定过滤条件，当条件为真时才会执行具体的`handler`逻辑。
+
+    ```java
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Data
+    public class CustomerEvent {
+        private String name;
+    }
+    
+    @Component("springListener")
+    public class SpringListener {
+        
+        /**
+         * 监听 CustomerEvent 类型事件，但是需要满足condition条件
+         */
+        @EventListener(condition = "#event.getName().equals('xxx')")
+        public void processEvent(CustomerEvent event) {
+            System.out.println("process  CustomerEvent, name:" + event.getName());
+        }
+    }
+    
+    ```
+
+    
+
+* 底层实现上使用`ApplicationListenerMethodAdapter`作为`handler`方法的适配器，当事件被触发时，先判断条件是否满足，之后再执行方法。
+
+    ```java
+    public class ApplicationListenerMethodAdapter {
+    	private final Method method; // processEvent
+    	@Nullable
+    	private final String condition; // #event.getName().equals('xxx')
+        
+    	public void processEvent(ApplicationEvent event) {
+            Object[] args = resolveArguments(event);
+            // condition是否成立判断
+            if (shouldHandle(event, args)) {
+                Object result = doInvoke(args);
+                if (result != null) {
+                    handleResult(result);
+                }
+                else {
+                    logger.trace("No result object given - no result to handle");
+                }
+            }
+    }
+    ```
+
+    
+
+##### 顺序特性
+
+* `Spring Event`支持在某事件发生时，为他的全部`handler`指定执行顺序，当时间触发时多个`handler`将按照指定顺序执行。
+
+    ```java
+    @Component
+    public class EventListenerBean {
+        @EventListener
+        @Order(1)
+        public void handleFirst(CustomEvent event) {
+            System.out.println("first");
+        }
+    
+        @EventListener
+        @Order(2)
+        public void handleSecond(CustomEvent event) {
+            System.out.println("second");
+        }
+    }
+    
+    ```
+
+    
+
+* 其底层实现是在事件发生时，在`ApplicationEventMulticaster`实现类的`multicastEvent`方法中找到事件对应的全部`Listener`后，对他们按照指定的顺序排序，再执行`invokeListener`调用
+
+    ```java
+    public class SimpleApplicationEventMulticaster{
+        // 广播事件，获取该事件的全部Listener并逐个调用
+        public void multicastEvent(ApplicationEvent event, @Nullable ResolvableType eventType) {
+        // do something
+        for (ApplicationListener<?> listener : getApplicationListeners(event, type)) {
+            if (executor != null && listener.supportsAsyncExecution()) {
+                try {
+                    executor.execute(() -> invokeListener(listener, event));
+                }
+                catch (RejectedExecutionException ex) {
+                    // Probably on shutdown -> invoke listener locally instead
+                    invokeListener(listener, event);
+                }
+            }
+            else {
+                invokeListener(listener, event);
+            }
+        }
+    }
+        
+    public abstract class AbstractApplicationEventMulticaster{
+        // 获得事件的全部Listener
+        protected Collection<ApplicationListener<?>> getApplicationListeners(
+            ApplicationEvent event, ResolvableType eventType) {
+            // do something
+            return retrieveApplicationListeners(eventType, sourceType, newRetriever);
+        }
+        
+        // 从注册的所有监听器中找出那些对给定事件感兴趣的监听器
+        private Collection<ApplicationListener<?>> retrieveApplicationListeners(
+    			ResolvableType eventType, @Nullable Class<?> sourceType, @Nullable CachedListenerRetriever retriever) {
+            // do something
+            // 按照@Order指定顺序排序
+            AnnotationAwareOrderComparator.sort(allListeners);
+            return allListeners;
+    }
+    
+    ```
+
+    
+
+### 参考
+
+* [Guava EventBus](https://github.com/google/guava/blob/master/guava/src/com/google/common/eventbus)
+* [一文读懂Guava EventBus（订阅\发布事件）](https://zhuanlan.zhihu.com/p/606516662)
+* [Guava EventBus的具体使用以及源码解析](https://www.cnblogs.com/knqiufan/p/17479060.html)
+* [guava eventbus 原理+源码分析](https://www.cnblogs.com/tele-share/p/14258352.html)
+* [EventBus VS Spring Event](https://www.cnblogs.com/shoren/p/eventBus_springEvent.html)
+* [业务解耦工具：Spring Event用法和源码分析](https://zhuanlan.zhihu.com/p/613266415)
