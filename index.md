@@ -18,7 +18,7 @@
 >
 > [DelayQueue实现](./doc/blog/DelayQueue实现.html)
 >
-> 调用解耦：[Guava EventBus解读](./doc/blog/EventBus.html)，[京东AsyncTools任务编排](./doc/blog/async-tools.html)
+> 调用解耦：[Guava EventBus解读](./doc/blog/EventBus.html)，[京东AsyncTool任务编排](./doc/blog/async-tools.html)
 
 ---
 
