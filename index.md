@@ -4,7 +4,7 @@
 
 ### 开源项目
 
-> [Manifold Constrained Neural Network (MCNN) ](https://github.com/HuangQiang97/mcnn)为复数神经网络提供约束性优化和流形优化的深度学习优化框架。为在`PyTorch`中进行复数约束性优化和流形优化提供了一种简单的方法，无需任何模板，提供开箱即用的流形优化器、流形网络层和流形网络模型。
+> [Manifold Constrained Neural Network (MCNN) ](https://github.com/HuangQiang97/mcnn)为复数神经网络提供约束性优化和流形优化的深度学习优化框架。为在`PyTorch`中进行复数约束性优化和流形优化提供了一种简单的方法，无需任何模板，提供开箱即用的流形优化器、流形网络层和流形网络模型。延伸阅读：[算法设计](./doc/blog/mcnn_framework.html)、[研究应用](./doc/blog/mcnn_beamtraining.html)。
 
 <center><img src="./doc/blog/2023_07_12.png" width = "600" alt="图片名称" align=center /></center>
 
