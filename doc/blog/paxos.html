@@ -1,5 +1,5 @@
 <!doctype html>
-<html style='font-size:16px !important'>
+<html style='font-size:15px !important'>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
@@ -294,48 +294,47 @@ span.cm-strikethrough { text-decoration: line-through; }
 @include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 /* open-sans-regular - latin-ext_latin */
-/* open-sans-italic - latin-ext_latin */
-/* open-sans-700 - latin-ext_latin */
-/* open-sans-700italic - latin-ext_latin */
-html {
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: 'JetBrains Mono NL', '更纱黑体 UI SC', "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    font-family:'更纱黑体 UI SC', "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
 
 #write {
-    max-width: 774px;
-    margin: 0 auto;
-    padding: 30px;
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
     padding-bottom: 100px;
 }
 
-@media only screen and (min-width: 1260px) {
-    #write {
-        max-width: 922px;
-    }
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
 }
 
-@media only screen and (min-width: 1620px) {
-    #write {
-        max-width: 1080px;
-    }
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
 }
 
-#write>ul:first-child,
-#write>ol:first-child {
+#write > ul:first-child,
+#write > ol:first-child{
     margin-top: 30px;
 }
 
 a {
     color: #4183C4;
 }
-
 h1,
 h2,
 h3,
@@ -349,7 +348,6 @@ h6 {
     line-height: 1.4;
     cursor: text;
 }
-
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -358,43 +356,35 @@ h5:hover a.anchor,
 h6:hover a.anchor {
     text-decoration: none;
 }
-
 h1 tt,
 h1 code {
     font-size: inherit;
 }
-
 h2 tt,
 h2 code {
     font-size: inherit;
 }
-
 h3 tt,
 h3 code {
     font-size: inherit;
 }
-
 h4 tt,
 h4 code {
     font-size: inherit;
 }
-
 h5 tt,
 h5 code {
     font-size: inherit;
 }
-
 h6 tt,
 h6 code {
     font-size: inherit;
 }
-
 h1 {
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
-
 h2 {
     font-size: 1.75em;
     line-height: 1.225;
@@ -422,34 +412,28 @@ h3 {
     font-size: 1.5em;
     line-height: 1.43;
 }
-
 h4 {
     font-size: 1.25em;
 }
-
 h5 {
     font-size: 1em;
 }
-
 h6 {
-    font-size: 1em;
+   font-size: 1em;
     color: #777;
 }
-
 p,
 blockquote,
 ul,
 ol,
 dl,
-table {
+table{
     margin: 0.8em 0;
 }
-
 li>ol,
 li>ul {
     margin: 0 0;
 }
-
 hr {
     height: 2px;
     padding: 0;
@@ -463,48 +447,39 @@ hr {
 li p.first {
     display: inline-block;
 }
-
 ul,
 ol {
     padding-left: 30px;
 }
-
 ul:first-child,
 ol:first-child {
     margin-top: 0;
 }
-
 ul:last-child,
 ol:last-child {
     margin-bottom: 0;
 }
-
 blockquote {
     border-left: 4px solid #dfe2e5;
     padding: 0 15px;
     color: #777777;
 }
-
 blockquote blockquote {
     padding-right: 0;
 }
-
 table {
     padding: 0;
     word-break: initial;
 }
-
 table tr {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
-
 table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-
 table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
@@ -512,18 +487,15 @@ table th {
     margin: 0;
     padding: 6px 13px;
 }
-
 table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-
 table th:first-child,
 table td:first-child {
     margin-top: 0;
 }
-
 table th:last-child,
 table td:last-child {
     margin-bottom: 0;
@@ -534,7 +506,7 @@ table td:last-child {
 }
 
 .code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
     border-top: 1px solid #eef2f2;
 }
 
@@ -562,15 +534,14 @@ code {
 }
 
 
-.md-task-list-item>input {
-    margin-left: -1.3em;
+.md-task-list-item > input {
+  margin-left: -1.3em;
 }
 
 @media print {
     html {
         font-size: 13px;
     }
-
     pre {
         page-break-inside: avoid;
         word-wrap: break-word;
@@ -578,11 +549,10 @@ code {
 }
 
 .md-fences {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
-
 #write pre.md-meta-block {
-    padding: 1rem;
+	padding: 1rem;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
@@ -593,33 +563,29 @@ code {
 }
 
 .mathjax-block>.code-tooltip {
-    bottom: .375rem;
+	bottom: .375rem;
 }
 
 .md-mathjax-midline {
     background: #fafafa;
 }
 
-#write>h3.md-focus:before {
-    left: -1.5625rem;
-    top: .375rem;
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
 }
-
-#write>h4.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h5.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h6.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
 .md-image>.md-meta {
     /*border: 1px solid #ddd;*/
     border-radius: 3px;
@@ -633,9 +599,9 @@ code {
     opacity: 1;
 }
 
-.md-toc {
-    margin-top: 20px;
-    padding-bottom: 20px;
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
 }
 
 .sidebar-tabs {
@@ -659,15 +625,12 @@ code {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header,
-.context-menu,
-.megamenu-content,
-footer {
-    font-family: 'JetBrains Mono NL', '更纱黑体 UI SC', "Segoe UI", "Arial", sans-serif;
+header, .context-menu, .megamenu-content, footer{
+    font-family:'更纱黑体 UI SC', "Segoe UI", "Arial", sans-serif;
 }
 
 .file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state {
+.file-node-content:hover .file-node-open-state{
     visibility: visible;
 }
 
@@ -704,8 +667,9 @@ footer {
 
 .menu-item-container a.menu-style-btn {
     background-color: #f5f8fa;
-    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
 }
+
 .CodeMirror-wrap .CodeMirror-code pre {
     font-family: 'JetBrains Mono NL'
 }
@@ -713,11 +677,11 @@ footer {
 </style><title>paxos</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n243"><a class="md-toc-inner" href="#basic-poxos">Basic Poxos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n2"><a class="md-toc-inner" href="#前置共识">前置共识</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n10"><a class="md-toc-inner" href="#成员">成员</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n18"><a class="md-toc-inner" href="#流程">流程</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n23"><a class="md-toc-inner" href="#准备阶段">准备阶段</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n34"><a class="md-toc-inner" href="#批准阶段">批准阶段</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n46"><a class="md-toc-inner" href="#multi-paxos">Multi Paxos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n47"><a class="md-toc-inner" href="#如何改进">如何改进</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n65"><a class="md-toc-inner" href="#流程-2">流程</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n67"><a class="md-toc-inner" href="#选主">选主</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n71"><a class="md-toc-inner" href="#提交">提交</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n77"><a class="md-toc-inner" href="#节点异常处理">节点异常处理</a></span></p></div><h1 id='basic-poxos'><span>Basic Poxos</span></h1><h3 id='前置共识'><span>前置共识</span></h3><ul><li><p><span>为什么需要分布式共识：集群场景一个操作的数据需要同步到多个从节点，使用“状态转移”方式，通过复制全量数据做同步时，需要等待全部从节点记录下数据修改后，再返回操作成功，如果某个从节点阻塞，将导致整个操作受阻。</span></p></li><li><p><span>状态机复制：任何初始状态一样的状态机，如果执行的命令序列一样，则最终达到的状态也一样。</span></p></li><li><p><span>操作转移方式同步：</span><mark><span>确保主从节点初始状态一致， 并且接收到的操作指令序列也一致，主从节点将保持最终一致。</span></mark></p></li></ul><h3 id='成员'><span>成员</span></h3><ul><li><p><span>提案节点：提出修改某个值请求的节点；</span></p></li><li><p><span>决策节点：接受提案节点请求，决定该请求是否可以接受；</span></p></li><li><p><span>记录节点：不参与提案与决策，只负责记录决策节点通过的提案。</span></p></li></ul><h3 id='流程'><span>流程</span></h3><ul><li><p><span>分为准备、批准两个阶段</span></p></li></ul><p><img src=".\assets\image-20240519175723715.png" alt="image-20240519175723715" style="zoom:60%;" /></p><h5 id='准备阶段'><span>准备阶段</span></h5><ul><li><p><span>为什么需要准备阶段：为保证并发场景修改操作结果正确，需要为操作加锁，防止多个请求串行执行。</span><mark><span>准备过程起到锁抢占作用，防止某个节点获取锁后宕机，导致锁无法释放</span></mark><span>。</span></p></li><li><p><span>流程</span></p><blockquote><p><span>-&gt;  初始化：决策节点保存通过准备阶段的请求的最大请求ID为</span><code>pre_id</code><span>、通过批准阶段的请求中最大请求ID和对应值</span><code>acc_id, acc_value</code><span>；</span></p><p><span>-&gt; 提案节点发起请求，请求中携带全局唯一且递增的</span><code>n</code><span>作为提案ID；</span></p><p><span>-&gt; 在决策节点，如果</span><code>n&gt;pre_id</code><span>，当前准备请求被接受，更新</span><code>pre_id=n</code><span>，之后将不再接受提案ID小于等于</span><code>n</code><span>的准备请求，</span><mark><span>不再接受开启版本号小于当前的会话</span></mark><span>；如果</span><code>n&lt;=pre_id</code><span>证明已存在新的准备请求，当前准备请求结束已过时，直接返回失败；</span></p><p><span>-&gt; 如果当前准备请求被接受，决策节点将返回批准过的提案中，最大提案ID对应的ID和值：</span><code>&lt;acc_id,  acc_value&gt;</code><span>。</span></p></blockquote></li></ul><h5 id='批准阶段'><span>批准阶段</span></h5><ul><li><p><span>流程</span></p><blockquote><p><span>-&gt;如果所有决策节点返回的</span><code>acc_value</code><span>都是</span><code>null</code><span>，说明当前请求获取锁，可以向所有决策节点发送数据</span><code>&lt;id, value&gt;</code><span>，完成数据更新。</span></p><p><span>-&gt;如果存在决策节返回的</span><code>acc_value</code><span>不是</span><code>null</code><span>，</span><mark><span>说明当前请求获取锁失败，将放弃当前请求，向所有决策节点发送数据</span><code>&lt;id, acc_value&gt;</code><span>，协助获得锁的请求完成数据更新；</span></mark></p><p><span>-&gt;在决策节点，如果请求</span><code>id&gt;=pre_id</code><span>，当前批准求情将被处理，更新</span><code>acc_id=id, acc_value=value</code><span>，回复成功。如果</span><code>id&lt;pre_id</code><span>当前请求将被无视，</span><mark><span>只处理最新会话的批准请求，之前开启会话的批准请求将被无视，防止新旧操作交替，导致数据不一致</span></mark><span>；</span></p><p><span>-&gt;当提案节点收到过半决策节点的应答后，协商结束，共识已完成，将决策广播发送到记录节点。</span></p></blockquote></li></ul><p><span>上述流程额可以总结为下列伪代码</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="pseudocode" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="pseudocode"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51786px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 初始化变量</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">pre_id</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">acc_id</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">acc_value</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
-</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 提案节点请求中携带全局唯一且递增的提案ID n</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 决策节点返回批准过的提案中最大提案ID对应的 ID 和设置的值</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">proposal_request</span><span class="cm-bracket">(</span><span class="cm-variable">n</span><span class="cm-bracket">):</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">n</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">pre_id</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前准备请求被接受，更新 pre_id</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">pre_id</span> <span class="cm-operator">=</span> <span class="cm-variable">n</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 不再接受提案ID小于等于 n 的准备请求</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 不再接受开启版本号小于当前的会话</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">acc_value</span> <span class="cm-keyword">is</span> <span class="cm-atom">null</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求是第一个请求，成功获得锁</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-bracket">(</span><span class="cm-variable">acc_id</span>, <span class="cm-atom">null</span><span class="cm-bracket">)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前锁已被其它请求抢占，放弃当前请求，协助获得锁的请求完成同步流程</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-bracket">(</span><span class="cm-variable">acc_id</span>, <span class="cm-variable">acc_value</span><span class="cm-bracket">)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 已存在更新的准备请求，当前准备请求结束，直接返回</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">rejected</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
-</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 提案节点处理决策节点的响应</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">handle_decision_responses</span><span class="cm-bracket">(</span><span class="cm-variable">responses</span><span class="cm-bracket">):</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-keyword">all</span><span class="cm-bracket">(</span><span class="cm-variable">response</span>.<span class="cm-variable">acc_value</span> <span class="cm-keyword">is</span> <span class="cm-atom">null</span> <span class="cm-keyword">for</span> <span class="cm-variable">response</span> <span class="cm-keyword">in</span> <span class="cm-variable">responses</span><span class="cm-bracket">):</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求获取锁，可以向所有决策节点发送数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">send_data_to_decision_nodes</span><span class="cm-bracket">(</span><span class="cm-variable">id</span>, <span class="cm-variable">value</span><span class="cm-bracket">)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求获取锁失败，向所有决策节点发送数据协助获得锁的请求完成数据更新</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">send_data_to_decision_nodes</span><span class="cm-bracket">(</span><span class="cm-variable">id</span>, <span class="cm-variable">acc_value</span><span class="cm-bracket">)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
-</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 决策节点处理批准请求</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">approve_request</span><span class="cm-bracket">(</span><span class="cm-variable">id</span>, <span class="cm-variable">value</span><span class="cm-bracket">):</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">id</span> <span class="cm-operator">&gt;=</span> <span class="cm-variable">pre_id</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前批准请求被处理，更新 acc_id 和 acc_value</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">acc_id</span> <span class="cm-operator">=</span> <span class="cm-variable">id</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">acc_value</span> <span class="cm-operator">=</span> <span class="cm-variable">value</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 回复成功，不再接受提案ID小于 pre_id 的批准提案</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 只处理最新会话的批准请求，之前开启会话的批准请求将被无视</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">approved</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求将被无视</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">ignored</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
-</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 提案节点处理过半决策节点的应答后</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">consensus_achieved</span><span class="cm-bracket">(</span><span class="cm-variable">responses</span><span class="cm-bracket">):</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">count_success_responses</span><span class="cm-bracket">(</span><span class="cm-variable">responses</span><span class="cm-bracket">)</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">half_of_decision_nodes</span><span class="cm-bracket">:</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 协商结束，共识已完成，将决策发送到记录节点</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">send_decision_to_record_nodes</span><span class="cm-bracket">()</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
-</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1175px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1175px;"></div></div></div></pre><p>&nbsp;</p><h1 id='multi-paxos'><span>Multi Paxos</span></h1><h3 id='如何改进'><span>如何改进</span></h3><ul><li><p><code>Basic Paxos</code><span>中，如果两个提案节点争相提出提案，抢占同一个值的修改权限，导致某个决策节点轮流通过他们的准备请求，使得两个提案的批准请求通过数未过半，整个系统处于无法提交的状态，例如：</span></p><p><img src="assets/image-20240521215524604.png" alt="image-20240521215524604" style="zoom:50%;" /></p><blockquote><p><span>(0)-&gt;A发起版本为3.1准备请求 </span><code>prepare(3.1, A)</code><span>，决策节点修改</span><code>pre_id=3.1</code><span>；</span></p><p><span>(1)-&gt;B发起版本为3.5准备请求 </span><code>prepare(3.5, B)</code><span>，决策节点修改</span><code>pre_id=3.5</code><span>；</span></p><p><span>(2)-&gt;A提交版本为3.1批准请求</span><code>accept(3.1, A, value)</code><span>，由于决策节点处</span><code>pre_id=3.5</code><span>，批准请求被拒绝；</span></p><p><span>(3)-&gt;A重新发起版本为4.1准备请求</span><code>prepare(4.1, A)</code><span>，决策节点修改</span><code>pre_id=4.1</code><span>；</span></p><p><span>(4)-&gt;B提交版本为3.5批准请求</span><code>accept(3.5, B, value)</code><span>，由于决策节点处</span><code>pre_id=4.1</code><span>，批准请求被拒绝；</span></p><p><span>(5)-&gt;B重新发起版本为5.5准备请求</span><code>prepare(5.5, B)</code><span>，决策节点修改</span><code>pre_id=5.5</code><span>；</span></p><p><span>后续将不断重复(2)到(5)步，将导致该节点永远无法完成批准请求的处理。</span></p></blockquote></li><li><p><code>Multi Paxos</code><span>通过选取主从节点，保证节点平等的同时，在提案节点中实现主次之分，限制每个节点都有不受控的提案权利，防止并发提交提案时数据错乱的问题；</span></p><p><mark><span>只有主节点能提交提案，无需</span><code>Basic Poxos</code><span>中抢占锁的准备阶段，相当于处于无并发环境中</span></mark><span>。</span></p></li><li><p><code>Basic Poxos</code><span>中无节点异常处理机制，</span><mark><code>Multi Paxos</code><span>通过新增主节点选举，保证正常节点数过半，系统就能正常工作，解决节点异常的问题</span></mark><span>。</span></p></li></ul><h3 id='流程-2'><span>流程</span></h3><p><img src=".\assets\image-20240519202040383.png" alt="image-20240519202040383" style="zoom:80%;" /></p><h5 id='选主'><span>选主</span></h5><ul><li><p><span>当网络节点中无主节点时，触发</span><code>Basic Poxos</code><span>方式选举过程，获得过半批准请求的节点成为主节点，并将任期编号加一。</span></p></li></ul><h5 id='提交'><span>提交</span></h5><ul><li><p><span>用户提交请求ID、当前主节点任期和想要设置的值</span><code>&lt;ID, i, value&gt;</code><span>给主节点；</span></p></li><li><p><span>主节点将日志持久化，再向所有从节点传递数据日志，当主节点收到过半从节点确认后，提交变更，返回操作成功。</span></p></li></ul><h5 id='节点异常处理'><span>节点异常处理</span></h5><ul><li><p><span>通过主节点选举和提案提交需要过半节点赞成的机制，保证正常节点过半，系统就能正常工作。</span></p></li><li><p><span>例如集群产生脑裂,得到分区</span><code>X, Y</code><span>，其中</span><code>X</code><span>不满足过半节点要求。</span></p></li><li><p><span>如果原主节点位于</span><code>X</code><span>，由于</span><code>Y</code><span>中节点数过半，可以选举新的主节点，并将任期数加一。提交修改时，分区</span><code>X</code><span>由于无法收到超过原先从节点数一半的确认，将无法批准新的更改，分区</span><code>Y</code><span>将能正常工作；</span></p><p><span>分区解除后，分区</span><code>Y</code><span>中主节点由于任期更大，将成为所有节点的主节点，并将脑裂期间</span><code>Y</code><span>中修改同步到</span><code>X</code><span>中节点。</span></p></li><li><p><span>如果原主节点位于</span><code>Y</code><span>，由于</span><code>X</code><span>中节点数未过半，不能收到过半从节点确认，不再能提供服务，分区</span><code>Y</code><span>将能正常工作。</span></p><p><span>分区解除后，分区</span><code>Y</code><span>中主节点将成为所有节点的主节点，并将脑裂期间</span><code>Y</code><span>中修改同步到</span><code>X</code><span>中节点。</span></p><p>&nbsp;</p></li></ul></div></div>
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#basic-poxos">Basic Poxos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n3"><a class="md-toc-inner" href="#前置共识">前置共识</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n11"><a class="md-toc-inner" href="#成员">成员</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n19"><a class="md-toc-inner" href="#流程">流程</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n24"><a class="md-toc-inner" href="#准备阶段">准备阶段</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n35"><a class="md-toc-inner" href="#批准阶段">批准阶段</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n47"><a class="md-toc-inner" href="#multi-paxos">Multi Paxos</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n48"><a class="md-toc-inner" href="#如何改进">如何改进</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n66"><a class="md-toc-inner" href="#流程-2">流程</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n68"><a class="md-toc-inner" href="#选主">选主</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n72"><a class="md-toc-inner" href="#提交">提交</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n78"><a class="md-toc-inner" href="#节点异常处理">节点异常处理</a></span></p></div><h1 id='basic-poxos'><span>Basic Poxos</span></h1><h3 id='前置共识'><span>前置共识</span></h3><ul><li><p><span>为什么需要分布式共识：集群场景一个操作的数据需要同步到多个从节点，使用“状态转移”方式，通过复制全量数据做同步时，需要等待全部从节点记录下数据修改后，再返回操作成功，如果某个从节点阻塞，将导致整个操作受阻。</span></p></li><li><p><span>状态机复制：任何初始状态一样的状态机，如果执行的命令序列一样，则最终达到的状态也一样。</span></p></li><li><p><span>操作转移方式同步：</span><mark><span>确保主从节点初始状态一致， 并且接收到的操作指令序列也一致，主从节点将保持最终一致。</span></mark></p></li></ul><h3 id='成员'><span>成员</span></h3><ul><li><p><span>提案节点：提出修改某个值请求的节点；</span></p></li><li><p><span>决策节点：接受提案节点请求，决定该请求是否可以接受；</span></p></li><li><p><span>记录节点：不参与提案与决策，只负责记录决策节点通过的提案。</span></p></li></ul><h3 id='流程'><span>流程</span></h3><ul><li><p><span>分为准备、批准两个阶段</span></p></li></ul><p><img src=".\assets\image-20240519175723715.png" alt="image-20240519175723715" style="zoom:60%;" /></p><h4 id='准备阶段'><span>准备阶段</span></h4><ul><li><p><span>为什么需要准备阶段：为保证并发场景修改操作结果正确，需要为操作加锁，防止多个请求串行执行。</span><mark><span>准备过程起到锁抢占作用，防止某个节点获取锁后宕机，导致锁无法释放</span></mark><span>。</span></p></li><li><p><span>流程</span></p><blockquote><p><span>-&gt;  初始化：决策节点保存通过准备阶段的请求的最大请求ID为</span><code>pre_id</code><span>、通过批准阶段的请求中最大请求ID和对应值</span><code>acc_id, acc_value</code><span>；</span></p><p><span>-&gt; 提案节点发起请求，请求中携带全局唯一且递增的</span><code>n</code><span>作为提案ID；</span></p><p><span>-&gt; 在决策节点，如果</span><code>n&gt;pre_id</code><span>，当前准备请求被接受，更新</span><code>pre_id=n</code><span>，之后将不再接受提案ID小于等于</span><code>n</code><span>的准备请求，</span><mark><span>不再接受开启版本号小于当前的会话</span></mark><span>；如果</span><code>n&lt;=pre_id</code><span>证明已存在新的准备请求，当前准备请求结束已过时，直接返回失败；</span></p><p><span>-&gt; 如果当前准备请求被接受，决策节点将返回批准过的提案中，最大提案ID对应的ID和值：</span><code>&lt;acc_id,  acc_value&gt;</code><span>。</span></p></blockquote></li></ul><h4 id='批准阶段'><span>批准阶段</span></h4><ul><li><p><span>流程</span></p><blockquote><p><span>-&gt;如果所有决策节点返回的</span><code>acc_value</code><span>都是</span><code>null</code><span>，说明当前请求获取锁，可以向所有决策节点发送数据</span><code>&lt;id, value&gt;</code><span>，完成数据更新。</span></p><p><span>-&gt;如果存在决策节返回的</span><code>acc_value</code><span>不是</span><code>null</code><span>，</span><mark><span>说明当前请求获取锁失败，将放弃当前请求，向所有决策节点发送数据</span><code>&lt;id, acc_value&gt;</code><span>，协助获得锁的请求完成数据更新；</span></mark></p><p><span>-&gt;在决策节点，如果请求</span><code>id&gt;=pre_id</code><span>，当前批准求情将被处理，更新</span><code>acc_id=id, acc_value=value</code><span>，回复成功。如果</span><code>id&lt;pre_id</code><span>当前请求将被无视，</span><mark><span>只处理最新会话的批准请求，之前开启会话的批准请求将被无视，防止新旧操作交替，导致数据不一致</span></mark><span>；</span></p><p><span>-&gt;当提案节点收到过半决策节点的应答后，协商结束，共识已完成，将决策广播发送到记录节点。</span></p></blockquote></li></ul><p><span>上述流程额可以总结为下列伪代码</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="pseudocode" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="pseudocode"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.79688px; left: 43px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 初始化变量</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">pre_id</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">acc_id</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">acc_value</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 提案节点请求中携带全局唯一且递增的提案ID n</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 决策节点返回批准过的提案中最大提案ID对应的 ID 和设置的值</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">proposal_request</span><span class="cm-bracket">(</span><span class="cm-variable">n</span><span class="cm-bracket">):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">n</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">pre_id</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前准备请求被接受，更新 pre_id</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">pre_id</span> <span class="cm-operator">=</span> <span class="cm-variable">n</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 不再接受提案ID小于等于 n 的准备请求</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 不再接受开启版本号小于当前的会话</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">acc_value</span> <span class="cm-keyword">is</span> <span class="cm-atom">null</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求是第一个请求，成功获得锁</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-bracket">(</span><span class="cm-variable">acc_id</span>, <span class="cm-atom">null</span><span class="cm-bracket">)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前锁已被其它请求抢占，放弃当前请求，协助获得锁的请求完成同步流程</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-bracket">(</span><span class="cm-variable">acc_id</span>, <span class="cm-variable">acc_value</span><span class="cm-bracket">)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 已存在更新的准备请求，当前准备请求结束，直接返回</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">rejected</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 提案节点处理决策节点的响应</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">handle_decision_responses</span><span class="cm-bracket">(</span><span class="cm-variable">responses</span><span class="cm-bracket">):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-keyword">all</span><span class="cm-bracket">(</span><span class="cm-variable">response</span>.<span class="cm-variable">acc_value</span> <span class="cm-keyword">is</span> <span class="cm-atom">null</span> <span class="cm-keyword">for</span> <span class="cm-variable">response</span> <span class="cm-keyword">in</span> <span class="cm-variable">responses</span><span class="cm-bracket">):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求获取锁，可以向所有决策节点发送数据</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">send_data_to_decision_nodes</span><span class="cm-bracket">(</span><span class="cm-variable">id</span>, <span class="cm-variable">value</span><span class="cm-bracket">)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求获取锁失败，向所有决策节点发送数据协助获得锁的请求完成数据更新</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">send_data_to_decision_nodes</span><span class="cm-bracket">(</span><span class="cm-variable">id</span>, <span class="cm-variable">acc_value</span><span class="cm-bracket">)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 决策节点处理批准请求</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">approve_request</span><span class="cm-bracket">(</span><span class="cm-variable">id</span>, <span class="cm-variable">value</span><span class="cm-bracket">):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">35</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">id</span> <span class="cm-operator">&gt;=</span> <span class="cm-variable">pre_id</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">36</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前批准请求被处理，更新 acc_id 和 acc_value</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">37</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">acc_id</span> <span class="cm-operator">=</span> <span class="cm-variable">id</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">38</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">acc_value</span> <span class="cm-operator">=</span> <span class="cm-variable">value</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">39</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 回复成功，不再接受提案ID小于 pre_id 的批准提案</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">40</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 只处理最新会话的批准请求，之前开启会话的批准请求将被无视</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">41</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">approved</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">42</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">43</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 当前请求将被无视</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">44</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">ignored</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">45</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">46</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-doc">// 提案节点处理过半决策节点的应答后</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">47</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def3">consensus_achieved</span><span class="cm-bracket">(</span><span class="cm-variable">responses</span><span class="cm-bracket">):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">48</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">count_success_responses</span><span class="cm-bracket">(</span><span class="cm-variable">responses</span><span class="cm-bracket">)</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">half_of_decision_nodes</span><span class="cm-bracket">:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">49</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-doc">// 协商结束，共识已完成，将决策发送到记录节点</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">50</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">send_decision_to_record_nodes</span><span class="cm-bracket">()</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">51</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1101px;"></div><div class="CodeMirror-gutters" style="height: 1101px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p>&nbsp;</p><h1 id='multi-paxos'><span>Multi Paxos</span></h1><h3 id='如何改进'><span>如何改进</span></h3><ul><li><p><code>Basic Paxos</code><span>中，如果两个提案节点争相提出提案，抢占同一个值的修改权限，导致某个决策节点轮流通过他们的准备请求，使得两个提案的批准请求通过数未过半，整个系统处于无法提交的状态，例如：</span></p><p><img src="assets/image-20240521215524604.png" alt="image-20240521215524604" style="zoom:50%;" /></p><blockquote><p><span>(0)-&gt;A发起版本为3.1准备请求 </span><code>prepare(3.1, A)</code><span>，决策节点修改</span><code>pre_id=3.1</code><span>；</span></p><p><span>(1)-&gt;B发起版本为3.5准备请求 </span><code>prepare(3.5, B)</code><span>，决策节点修改</span><code>pre_id=3.5</code><span>；</span></p><p><span>(2)-&gt;A提交版本为3.1批准请求</span><code>accept(3.1, A, value)</code><span>，由于决策节点处</span><code>pre_id=3.5</code><span>，批准请求被拒绝；</span></p><p><span>(3)-&gt;A重新发起版本为4.1准备请求</span><code>prepare(4.1, A)</code><span>，决策节点修改</span><code>pre_id=4.1</code><span>；</span></p><p><span>(4)-&gt;B提交版本为3.5批准请求</span><code>accept(3.5, B, value)</code><span>，由于决策节点处</span><code>pre_id=4.1</code><span>，批准请求被拒绝；</span></p><p><span>(5)-&gt;B重新发起版本为5.5准备请求</span><code>prepare(5.5, B)</code><span>，决策节点修改</span><code>pre_id=5.5</code><span>；</span></p><p><span>后续将不断重复(2)到(5)步，将导致该节点永远无法完成批准请求的处理。</span></p></blockquote></li><li><p><code>Multi Paxos</code><span>通过选取主从节点，保证节点平等的同时，在提案节点中实现主次之分，限制每个节点都有不受控的提案权利，防止并发提交提案时数据错乱的问题；</span></p><p><mark><span>只有主节点能提交提案，无需</span><code>Basic Poxos</code><span>中抢占锁的准备阶段，相当于处于无并发环境中</span></mark><span>。</span></p></li><li><p><code>Basic Poxos</code><span>中无节点异常处理机制，</span><mark><code>Multi Paxos</code><span>通过新增主节点选举，保证正常节点数过半，系统就能正常工作，解决节点异常的问题</span></mark><span>。</span></p></li></ul><h3 id='流程-2'><span>流程</span></h3><p><img src=".\assets\image-20240519202040383.png" alt="image-20240519202040383" style="zoom:80%;" /></p><h4 id='选主'><span>选主</span></h4><ul><li><p><span>当网络节点中无主节点时，触发</span><code>Basic Poxos</code><span>方式选举过程，获得过半批准请求的节点成为主节点，并将任期编号加一。</span></p></li></ul><h4 id='提交'><span>提交</span></h4><ul><li><p><span>用户提交请求ID、当前主节点任期和想要设置的值</span><code>&lt;ID, i, value&gt;</code><span>给主节点；</span></p></li><li><p><span>主节点将日志持久化，再向所有从节点传递数据日志，当主节点收到过半从节点确认后，提交变更，返回操作成功。</span></p></li></ul><h4 id='节点异常处理'><span>节点异常处理</span></h4><ul><li><p><span>通过主节点选举和提案提交需要过半节点赞成的机制，保证正常节点过半，系统就能正常工作。</span></p></li><li><p><span>例如集群产生脑裂,得到分区</span><code>X, Y</code><span>，其中</span><code>X</code><span>不满足过半节点要求。</span></p></li><li><p><span>如果原主节点位于</span><code>X</code><span>，由于</span><code>Y</code><span>中节点数过半，可以选举新的主节点，并将任期数加一。提交修改时，分区</span><code>X</code><span>由于无法收到超过原先从节点数一半的确认，将无法批准新的更改，分区</span><code>Y</code><span>将能正常工作；</span></p><p><span>分区解除后，分区</span><code>Y</code><span>中主节点由于任期更大，将成为所有节点的主节点，并将脑裂期间</span><code>Y</code><span>中修改同步到</span><code>X</code><span>中节点。</span></p></li><li><p><span>如果原主节点位于</span><code>Y</code><span>，由于</span><code>X</code><span>中节点数未过半，不能收到过半从节点确认，不再能提供服务，分区</span><code>Y</code><span>将能正常工作。</span></p><p><span>分区解除后，分区</span><code>Y</code><span>中主节点将成为所有节点的主节点，并将脑裂期间</span><code>Y</code><span>中修改同步到</span><code>X</code><span>中节点。</span></p><p>&nbsp;</p></li></ul></div></div>
 </body>
 </html>
