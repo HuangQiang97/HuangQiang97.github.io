@@ -18,9 +18,9 @@
 >
 > [DelayQueue实现](./doc/blog/DelayQueue实现.html)
 >
-> 调用解耦：[Guava EventBus解读](./doc/blog/EventBus.html)，[京东AsyncTool任务编排](./doc/blog/async-tools.html)，[消息队列之技：使用解读](./doc/blog/MQ.html)，[消息队列之术：排队理论](./doc/blog/消息队列中的排队理论.html)
+> 调用解耦：[Guava EventBus解读](./doc/blog/EventBus.html)，[京东AsyncTool任务编排](./doc/blog/async-tools.html)，[消息队列之技：工作流程解读](./doc/blog/MQ.html)，==[消息队列之术：排队理论](./doc/blog/消息队列中的排队理论.html)==
 >
-> 分布式基石：[Basic Paxos与Multi Paxos解读](./doc/blog/paxos.html)，[Raft解读与etcd实现](./doc/blog/raft.html)
+> 分布式基石：[Basic Paxos与Multi Paxos解读](./doc/blog/paxos.html)，[Raft解读与etcd实现](./doc/blog/raft.html)，[Dubbo远程调用解读](./doc/blog/dubbo.html)
 
 ---
 

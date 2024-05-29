@@ -1,5 +1,5 @@
 <!doctype html>
-<html style='font-size:16px !important'>
+<html style='font-size:15px !important'>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
@@ -213,48 +213,47 @@ mjx-container { break-inside: avoid; }
 @include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 /* open-sans-regular - latin-ext_latin */
-/* open-sans-italic - latin-ext_latin */
-/* open-sans-700 - latin-ext_latin */
-/* open-sans-700italic - latin-ext_latin */
-html {
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: 'JetBrains Mono NL', '更纱黑体 UI SC', "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    font-family:'更纱黑体 UI SC', "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
 
 #write {
-    max-width: 774px;
-    margin: 0 auto;
-    padding: 30px;
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
     padding-bottom: 100px;
 }
 
-@media only screen and (min-width: 1260px) {
-    #write {
-        max-width: 922px;
-    }
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
 }
 
-@media only screen and (min-width: 1620px) {
-    #write {
-        max-width: 1080px;
-    }
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
 }
 
-#write>ul:first-child,
-#write>ol:first-child {
+#write > ul:first-child,
+#write > ol:first-child{
     margin-top: 30px;
 }
 
 a {
     color: #4183C4;
 }
-
 h1,
 h2,
 h3,
@@ -268,7 +267,6 @@ h6 {
     line-height: 1.4;
     cursor: text;
 }
-
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -277,43 +275,35 @@ h5:hover a.anchor,
 h6:hover a.anchor {
     text-decoration: none;
 }
-
 h1 tt,
 h1 code {
     font-size: inherit;
 }
-
 h2 tt,
 h2 code {
     font-size: inherit;
 }
-
 h3 tt,
 h3 code {
     font-size: inherit;
 }
-
 h4 tt,
 h4 code {
     font-size: inherit;
 }
-
 h5 tt,
 h5 code {
     font-size: inherit;
 }
-
 h6 tt,
 h6 code {
     font-size: inherit;
 }
-
 h1 {
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
-
 h2 {
     font-size: 1.75em;
     line-height: 1.225;
@@ -341,34 +331,28 @@ h3 {
     font-size: 1.5em;
     line-height: 1.43;
 }
-
 h4 {
     font-size: 1.25em;
 }
-
 h5 {
     font-size: 1em;
 }
-
 h6 {
-    font-size: 1em;
+   font-size: 1em;
     color: #777;
 }
-
 p,
 blockquote,
 ul,
 ol,
 dl,
-table {
+table{
     margin: 0.8em 0;
 }
-
 li>ol,
 li>ul {
     margin: 0 0;
 }
-
 hr {
     height: 2px;
     padding: 0;
@@ -382,48 +366,39 @@ hr {
 li p.first {
     display: inline-block;
 }
-
 ul,
 ol {
     padding-left: 30px;
 }
-
 ul:first-child,
 ol:first-child {
     margin-top: 0;
 }
-
 ul:last-child,
 ol:last-child {
     margin-bottom: 0;
 }
-
 blockquote {
     border-left: 4px solid #dfe2e5;
     padding: 0 15px;
     color: #777777;
 }
-
 blockquote blockquote {
     padding-right: 0;
 }
-
 table {
     padding: 0;
     word-break: initial;
 }
-
 table tr {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
-
 table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-
 table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
@@ -431,18 +406,15 @@ table th {
     margin: 0;
     padding: 6px 13px;
 }
-
 table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-
 table th:first-child,
 table td:first-child {
     margin-top: 0;
 }
-
 table th:last-child,
 table td:last-child {
     margin-bottom: 0;
@@ -453,7 +425,7 @@ table td:last-child {
 }
 
 .code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
     border-top: 1px solid #eef2f2;
 }
 
@@ -481,15 +453,14 @@ code {
 }
 
 
-.md-task-list-item>input {
-    margin-left: -1.3em;
+.md-task-list-item > input {
+  margin-left: -1.3em;
 }
 
 @media print {
     html {
         font-size: 13px;
     }
-
     pre {
         page-break-inside: avoid;
         word-wrap: break-word;
@@ -497,11 +468,10 @@ code {
 }
 
 .md-fences {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
-
 #write pre.md-meta-block {
-    padding: 1rem;
+	padding: 1rem;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
@@ -512,33 +482,29 @@ code {
 }
 
 .mathjax-block>.code-tooltip {
-    bottom: .375rem;
+	bottom: .375rem;
 }
 
 .md-mathjax-midline {
     background: #fafafa;
 }
 
-#write>h3.md-focus:before {
-    left: -1.5625rem;
-    top: .375rem;
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
 }
-
-#write>h4.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h5.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h6.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
 .md-image>.md-meta {
     /*border: 1px solid #ddd;*/
     border-radius: 3px;
@@ -552,9 +518,9 @@ code {
     opacity: 1;
 }
 
-.md-toc {
-    margin-top: 20px;
-    padding-bottom: 20px;
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
 }
 
 .sidebar-tabs {
@@ -578,15 +544,12 @@ code {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header,
-.context-menu,
-.megamenu-content,
-footer {
-    font-family: 'JetBrains Mono NL', '更纱黑体 UI SC', "Segoe UI", "Arial", sans-serif;
+header, .context-menu, .megamenu-content, footer{
+    font-family:'更纱黑体 UI SC', "Segoe UI", "Arial", sans-serif;
 }
 
 .file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state {
+.file-node-content:hover .file-node-open-state{
     visibility: visible;
 }
 
@@ -623,8 +586,9 @@ footer {
 
 .menu-item-container a.menu-style-btn {
     background-color: #f5f8fa;
-    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
 }
+
 .CodeMirror-wrap .CodeMirror-code pre {
     font-family: 'JetBrains Mono NL'
 }
@@ -632,6 +596,6 @@ footer {
 </style><title>index</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h2 id='welcome-to-my-homepage'><span>Welcome to my homepage</span></h2><p><img src="./doc/0.jpg" alt="0" style="zoom:67%;" /></p><h3 id='开源项目'><span>开源项目</span></h3><blockquote><p><a href='https://github.com/HuangQiang97/mcnn'><span>Manifold Constrained Neural Network (MCNN) </span></a><span>为复数神经网络提供约束性优化和流形优化的深度学习优化框架。为在</span><code>PyTorch</code><span>中进行复数约束性优化和流形优化提供了一种简单的方法，无需任何模板，提供开箱即用的流形优化器、流形网络层和流形网络模型。延伸阅读：</span><a href='./doc/blog/mcnn_framework.html'><span>算法设计</span></a><span>、</span><a href='./doc/blog/mcnn_beamtraining.html'><span>研究应用</span></a><span>。</span></p></blockquote><center><img src="./doc/blog/2023_07_12.png" width = "600" alt="图片名称" align=center /></center><hr /><h3 id='博客'><span>博客</span></h3><blockquote><p><a href='./doc/blog/rangerank.html'><span>PageRank网页排序算法</span></a></p><p><a href='./doc/blog/short-url-generator.html'><span>短URL生成算法</span></a></p><p><a href='./doc/blog/DelayQueue实现.html'><span>DelayQueue实现</span></a></p><p><span>调用解耦：</span><a href='./doc/blog/EventBus.html'><span>Guava EventBus解读</span></a><span>，</span><a href='./doc/blog/async-tools.html'><span>京东AsyncTool任务编排</span></a><span>，</span><a href='./doc/blog/MQ.html'><span>消息队列之技：使用解读</span></a><span>，</span><a href='./doc/blog/消息队列中的排队理论.html'><span>消息队列之术：排队理论</span></a></p><p><span>分布式基石：</span><a href='./doc/blog/paxos.html'><span>Basic Paxos与Multi Paxos解读</span></a><span>，</span><a href='./doc/blog/raft.html'><span>Raft解读与etcd实现</span></a></p></blockquote><hr /><h3 id='笔记'><span>笔记</span></h3><p><strong><span>仿B站</span></strong></p><blockquote><p><a href='./doc/coding/仿B站/仿B站0.html#mvc模式'><span>MVC</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站0.html#restful'><span>RESTful</span></a></p><p><a href='./doc/coding/仿B站/仿B站1.html#加密'><span>加密</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站1.html#用户认证'><span>用户认证</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站1.html#注册与登录'><span>注册与登录</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站1.html#更新access-token'><span>令牌更新</span></a></p><p><a href='./doc/coding/仿B站/仿B站2.html#关注订阅'><span>关注订阅</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站2.html#发送动态'><span>发送动态</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站2.html#接收动态'><span>接收动态</span></a></p><p><a href='./doc/coding/仿B站/仿B站3.html#rbac模型'><span>RBAC模型</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站3.html#权限验证'><span>权限验证</span></a></p><p><a href='./doc/coding/仿B站/仿B站4.html#代理'><span>代理</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#负载均衡'><span>负载均衡</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#分片传输'><span>分片传输</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#秒传'><span>秒传</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#视频上传'><span>视频上传</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#视频播放'><span>播放</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#点赞'><span>点赞</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#投币'><span>投币</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#收藏'><span>收藏</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#评论'><span>评论</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#获取视频信息'><span>获取视频信息</span></a></p><p><a href='./doc/coding/仿B站/仿B站5.html#长连接'><span>长连接</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#连接建立'><span>建立连接</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#接收消息'><span>接收弹幕</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#查询弹幕'><span>查询弹幕</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#人数更新'><span>人数更新</span></a></p><p><a href='./doc/coding/仿B站/仿B站6.html'><span>全局搜索</span></a></p></blockquote><p>&nbsp;</p><p><strong><span>Java</span></strong></p><blockquote><p><a href='./doc/coding/Java/Java0.html#入门'><span>基础</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#oop'><span>OOP</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#核心类'><span>核心类</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#异常处理'><span>异常</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#反射'><span>反射</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#注解'><span>注解</span></a></p><p><a href='./doc/coding/Java/Java1.html#泛型'><span>泛型</span></a><span>，</span><a href='./doc/coding/Java/Java1.html#集合'><span>集合</span></a><span>，</span><a href='./doc/coding/Java/Java1.html#io'><span>IO</span></a><span>，</span><a href='./doc/coding/Java/Java1.html#时间'><span>时间</span></a></p><p><a href='./doc/coding/Java/Java2.html#测试'><span>测试</span></a><span>，</span><a href='./doc/coding/Java/Java2.html#正则'><span>正则</span></a><span>，</span><a href='./doc/coding/Java/Java2.html#加密'><span>加密</span></a><span>，</span><a href='./doc/coding/Java/Java3.html#多线程基础'><span>多线程</span></a><span>，</span><a href='./doc/coding/Java/Java3.html#aqs'><span>AQS</span></a></p><p><a href='./doc/coding/Java/Java4.html#maven'><span>Maven</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#网络'><span>网络</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#xml'><span>XML</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#jdbc'><span>JDBC</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#函数式编程'><span>函数式编程</span></a></p><p><a href='./doc/coding/Java/Java5.html#基础'><span>设计模式原则</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#工厂模式'><span>工厂模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#装饰器模式'><span>装饰器模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#单例模式'><span>单例模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#模板模式'><span>模板模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#观察者模式'><span>观察者模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#适配器模式'><span>适配器模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#代理模式'><span>代理模式</span></a></p><p><a href='./doc/coding/Java/Java6.html##基础'><span>MVC</span></a><span>，</span><a href='./doc/coding/Java/Java7.html#ioc'><span>IOC</span></a><span>，</span><a href='./doc/coding/Java/Java7.html#aop'><span>AOP</span></a></p><p><a href='./doc/coding/Java/Java10.html#线程数限制'><span>线程限制</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#cpu占用过高'><span>CPU占用高</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#服务缓慢'><span>服务缓慢</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#频繁gc'><span>频繁GC</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#oom'><span>OOM</span></a></p></blockquote><p><strong><span>Go</span></strong></p><blockquote><p><a href='./doc/coding/Go/part0.html#环境'><span>环境</span></a><span>，</span><a href='./doc/coding/Go/part0.html#编写'><span>格式</span></a><span>，</span><a href='./doc/coding/Go/part0.html#数据类型'><span>数据类型</span></a><span>，</span><a href='./doc/coding/Go/part0.html#流程控制'><span>流程控制</span></a><span>，</span><a href='./doc/coding/Go/part0.html#内存分配'><span>内存分配</span></a></p><p><a href='./doc/coding/Go/part1.html#结构体'><span>结构体</span></a><span>，</span><a href='./doc/coding/Go/part1.html#线性结构'><span>线性结构</span></a><span>，</span><a href='./doc/coding/Go/part1.html#堆'><span>堆</span></a><span>，</span><a href='./doc/coding/Go/part1.html#string'><span>string</span></a><span>，</span><a href='./doc/coding/Go/part1.html#映射'><span>映射</span></a><span>，</span><a href='./doc/coding/Go/part1.html#接口'><span>接口</span></a><span>，</span><a href='./doc/coding/Go/part1.html#类型'><span>类型</span></a></p><p><a href='./doc/coding/Go/part2.html#go程'><span>Go程</span></a><span>，</span><a href='./doc/coding/Go/part2.html#信道'><span>信道</span></a><span>，</span><a href='./doc/coding/Go/part2.html#互斥锁'><span>互斥锁</span></a><span>，</span><a href='./doc/coding/Go/part2.html#并行与并发'><span>并行与并发</span></a><span>，</span><a href='./doc/coding/Go/part2.html#初始化'><span>初始化</span></a><span>，</span><a href='./doc/coding/Go/part2.html#异常'><span>异常</span></a><span>，</span><a href='./doc/coding/Go/part2.html#测试'><span>测试</span></a><span>，</span><a href='./doc/coding/Go/part2.html#动态库与静态库'><span>库</span></a><span>，</span><a href='./doc/coding/Go/part2.html#命令行参数'><span>命令行</span></a></p><p><a href='./doc/coding/Go/part3-1.html'><span>并发机制</span></a><span>，</span><a href='./doc/coding/Go/part3-2.html'><span>内存管理</span></a><span>，</span><a href='./doc/coding/Go/part3-3.html'><span>容器实现</span></a></p></blockquote><p><strong><span>基础</span></strong></p><blockquote><p><a href='./doc/coding/基础/docker.html'><span>Docker</span></a><span>，</span><a href='./doc/coding/基础/redis.html'><span>Redis</span></a><a href='./doc/coding/基础/redis.html'><span>数据库</span></a><span>，</span><a href='./doc/coding/基础/操作系统.html'><span>操作系统</span></a><span>，</span><a href='./doc/coding/基础/网络.html'><span>计算机网络</span></a></p></blockquote><h3 id='闲聊'><span>闲聊</span></h3><blockquote><p><a href='./doc/blog/2020_01_05.html'><span>开题答辩</span></a></p><p><a href='./doc/blog/2020_01_13.html'><span>注放水问题</span></a></p><p><a href='./doc/blog/2020_02_08.html'><span>推免经验</span></a></p><p><a href='./doc/blog/2020_04_23.html'><span>求职</span></a></p></blockquote><hr /></div></div>
+<div id='write'  class=''><h2 id='welcome-to-my-homepage'><span>Welcome to my homepage</span></h2><p><img src="./doc/0.jpg" alt="0" style="zoom:67%;" /></p><h3 id='开源项目'><span>开源项目</span></h3><blockquote><p><a href='https://github.com/HuangQiang97/mcnn'><span>Manifold Constrained Neural Network (MCNN) </span></a><span>为复数神经网络提供约束性优化和流形优化的深度学习优化框架。为在</span><code>PyTorch</code><span>中进行复数约束性优化和流形优化提供了一种简单的方法，无需任何模板，提供开箱即用的流形优化器、流形网络层和流形网络模型。延伸阅读：</span><a href='./doc/blog/mcnn_framework.html'><span>算法设计</span></a><span>、</span><a href='./doc/blog/mcnn_beamtraining.html'><span>研究应用</span></a><span>。</span></p></blockquote><center><img src="./doc/blog/2023_07_12.png" width = "600" alt="图片名称" align=center /></center><hr /><h3 id='博客'><span>博客</span></h3><blockquote><p><a href='./doc/blog/rangerank.html'><span>PageRank网页排序算法</span></a></p><p><a href='./doc/blog/short-url-generator.html'><span>短URL生成算法</span></a></p><p><a href='./doc/blog/DelayQueue实现.html'><span>DelayQueue实现</span></a></p><p><span>调用解耦：</span><a href='./doc/blog/EventBus.html'><span>Guava EventBus解读</span></a><span>，</span><a href='./doc/blog/async-tools.html'><span>京东AsyncTool任务编排</span></a><span>，</span><a href='./doc/blog/MQ.html'><span>消息队列之技：工作流程解读</span></a><span>，</span><mark><a href='./doc/blog/消息队列中的排队理论.html'><span>消息队列之术：排队理论</span></a></mark></p><p><span>分布式基石：</span><a href='./doc/blog/paxos.html'><span>Basic Paxos与Multi Paxos解读</span></a><span>，</span><a href='./doc/blog/raft.html'><span>Raft解读与etcd实现</span></a><span>，</span><a href='./doc/blog/dubbo.html'><span>Dubbo远程调用解读</span></a></p></blockquote><hr /><h3 id='笔记'><span>笔记</span></h3><p><strong><span>仿B站</span></strong></p><blockquote><p><a href='./doc/coding/仿B站/仿B站0.html#mvc模式'><span>MVC</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站0.html#restful'><span>RESTful</span></a></p><p><a href='./doc/coding/仿B站/仿B站1.html#加密'><span>加密</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站1.html#用户认证'><span>用户认证</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站1.html#注册与登录'><span>注册与登录</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站1.html#更新access-token'><span>令牌更新</span></a></p><p><a href='./doc/coding/仿B站/仿B站2.html#关注订阅'><span>关注订阅</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站2.html#发送动态'><span>发送动态</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站2.html#接收动态'><span>接收动态</span></a></p><p><a href='./doc/coding/仿B站/仿B站3.html#rbac模型'><span>RBAC模型</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站3.html#权限验证'><span>权限验证</span></a></p><p><a href='./doc/coding/仿B站/仿B站4.html#代理'><span>代理</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#负载均衡'><span>负载均衡</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#分片传输'><span>分片传输</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#秒传'><span>秒传</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#视频上传'><span>视频上传</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#视频播放'><span>播放</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#点赞'><span>点赞</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#投币'><span>投币</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#收藏'><span>收藏</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#评论'><span>评论</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站4.html#获取视频信息'><span>获取视频信息</span></a></p><p><a href='./doc/coding/仿B站/仿B站5.html#长连接'><span>长连接</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#连接建立'><span>建立连接</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#接收消息'><span>接收弹幕</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#查询弹幕'><span>查询弹幕</span></a><span>，</span><a href='./doc/coding/仿B站/仿B站5.html#人数更新'><span>人数更新</span></a></p><p><a href='./doc/coding/仿B站/仿B站6.html'><span>全局搜索</span></a></p></blockquote><p>&nbsp;</p><p><strong><span>Java</span></strong></p><blockquote><p><a href='./doc/coding/Java/Java0.html#入门'><span>基础</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#oop'><span>OOP</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#核心类'><span>核心类</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#异常处理'><span>异常</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#反射'><span>反射</span></a><span>，</span><a href='./doc/coding/Java/Java0.html#注解'><span>注解</span></a></p><p><a href='./doc/coding/Java/Java1.html#泛型'><span>泛型</span></a><span>，</span><a href='./doc/coding/Java/Java1.html#集合'><span>集合</span></a><span>，</span><a href='./doc/coding/Java/Java1.html#io'><span>IO</span></a><span>，</span><a href='./doc/coding/Java/Java1.html#时间'><span>时间</span></a></p><p><a href='./doc/coding/Java/Java2.html#测试'><span>测试</span></a><span>，</span><a href='./doc/coding/Java/Java2.html#正则'><span>正则</span></a><span>，</span><a href='./doc/coding/Java/Java2.html#加密'><span>加密</span></a><span>，</span><a href='./doc/coding/Java/Java3.html#多线程基础'><span>多线程</span></a><span>，</span><a href='./doc/coding/Java/Java3.html#aqs'><span>AQS</span></a></p><p><a href='./doc/coding/Java/Java4.html#maven'><span>Maven</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#网络'><span>网络</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#xml'><span>XML</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#jdbc'><span>JDBC</span></a><span>，</span><a href='./doc/coding/Java/Java4.html#函数式编程'><span>函数式编程</span></a></p><p><a href='./doc/coding/Java/Java5.html#基础'><span>设计模式原则</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#工厂模式'><span>工厂模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#装饰器模式'><span>装饰器模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#单例模式'><span>单例模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#模板模式'><span>模板模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#观察者模式'><span>观察者模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#适配器模式'><span>适配器模式</span></a><span>，</span><a href='./doc/coding/Java/Java5.html#代理模式'><span>代理模式</span></a></p><p><a href='./doc/coding/Java/Java6.html##基础'><span>MVC</span></a><span>，</span><a href='./doc/coding/Java/Java7.html#ioc'><span>IOC</span></a><span>，</span><a href='./doc/coding/Java/Java7.html#aop'><span>AOP</span></a></p><p><a href='./doc/coding/Java/Java10.html#线程数限制'><span>线程限制</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#cpu占用过高'><span>CPU占用高</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#服务缓慢'><span>服务缓慢</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#频繁gc'><span>频繁GC</span></a><span>，</span><a href='./doc/coding/Java/Java10.html#oom'><span>OOM</span></a></p></blockquote><p><strong><span>Go</span></strong></p><blockquote><p><a href='./doc/coding/Go/part0.html#环境'><span>环境</span></a><span>，</span><a href='./doc/coding/Go/part0.html#编写'><span>格式</span></a><span>，</span><a href='./doc/coding/Go/part0.html#数据类型'><span>数据类型</span></a><span>，</span><a href='./doc/coding/Go/part0.html#流程控制'><span>流程控制</span></a><span>，</span><a href='./doc/coding/Go/part0.html#内存分配'><span>内存分配</span></a></p><p><a href='./doc/coding/Go/part1.html#结构体'><span>结构体</span></a><span>，</span><a href='./doc/coding/Go/part1.html#线性结构'><span>线性结构</span></a><span>，</span><a href='./doc/coding/Go/part1.html#堆'><span>堆</span></a><span>，</span><a href='./doc/coding/Go/part1.html#string'><span>string</span></a><span>，</span><a href='./doc/coding/Go/part1.html#映射'><span>映射</span></a><span>，</span><a href='./doc/coding/Go/part1.html#接口'><span>接口</span></a><span>，</span><a href='./doc/coding/Go/part1.html#类型'><span>类型</span></a></p><p><a href='./doc/coding/Go/part2.html#go程'><span>Go程</span></a><span>，</span><a href='./doc/coding/Go/part2.html#信道'><span>信道</span></a><span>，</span><a href='./doc/coding/Go/part2.html#互斥锁'><span>互斥锁</span></a><span>，</span><a href='./doc/coding/Go/part2.html#并行与并发'><span>并行与并发</span></a><span>，</span><a href='./doc/coding/Go/part2.html#初始化'><span>初始化</span></a><span>，</span><a href='./doc/coding/Go/part2.html#异常'><span>异常</span></a><span>，</span><a href='./doc/coding/Go/part2.html#测试'><span>测试</span></a><span>，</span><a href='./doc/coding/Go/part2.html#动态库与静态库'><span>库</span></a><span>，</span><a href='./doc/coding/Go/part2.html#命令行参数'><span>命令行</span></a></p><p><a href='./doc/coding/Go/part3-1.html'><span>并发机制</span></a><span>，</span><a href='./doc/coding/Go/part3-2.html'><span>内存管理</span></a><span>，</span><a href='./doc/coding/Go/part3-3.html'><span>容器实现</span></a></p></blockquote><p><strong><span>基础</span></strong></p><blockquote><p><a href='./doc/coding/基础/docker.html'><span>Docker</span></a><span>，</span><a href='./doc/coding/基础/redis.html'><span>Redis</span></a><a href='./doc/coding/基础/redis.html'><span>数据库</span></a><span>，</span><a href='./doc/coding/基础/操作系统.html'><span>操作系统</span></a><span>，</span><a href='./doc/coding/基础/网络.html'><span>计算机网络</span></a></p></blockquote><h3 id='闲聊'><span>闲聊</span></h3><blockquote><p><a href='./doc/blog/2020_01_05.html'><span>开题答辩</span></a></p><p><a href='./doc/blog/2020_01_13.html'><span>注放水问题</span></a></p><p><a href='./doc/blog/2020_02_08.html'><span>推免经验</span></a></p><p><a href='./doc/blog/2020_04_23.html'><span>求职</span></a></p></blockquote><hr /></div></div>
 </body>
 </html>
